@@ -11,12 +11,22 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import environ
 import os
-
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
 )
 from pathlib import Path
+
+
+
+#config = {
+#  "apiKey": env('FIREBASE_APIKEY'),
+#  "authDomain": env('AUTHDOM'),
+#  "projectId": env('PROJECT_ID'),
+#  "storageBucket": env('BUCKET'),
+#  "appID": env('APP_ID')
+#}
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'artists',
+    'merch'
 ]
 
 MIDDLEWARE = [
