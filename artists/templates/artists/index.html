@@ -1,0 +1,11 @@
+{% if artists %}
+    <ul>
+    {% for artist in artists %}
+        <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
+        <li>{{ artist.bio }}</li>
+        <img src="{{ artist.images }}"/>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

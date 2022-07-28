@@ -10,5 +10,5 @@ class Artist(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 
 
-    def __string__(self):
-        return self.first_name + " " + self.last_name        
+    def __str__(self):
+        return self.first_name + " " + self.last_name     
