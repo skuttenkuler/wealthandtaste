@@ -6,8 +6,9 @@ from .models import Artist
 
 def index(request):
     artists = Artist.objects.all()
-    template = loader.get_template('artists/index.html')
     context = {
         'artists': artists
     }
-    return HttpResponse(template.render(context,request))
+    return render(request, 'artists/index.html', context)
+def detail(request, artists):
+    return HttpResponse("<h2>Artist: " + artists.first_name + " " + artists.last_name +"</h2>")

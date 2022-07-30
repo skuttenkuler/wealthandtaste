@@ -3,17 +3,13 @@
     {% for artist in artists %}
         <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
         <li>{{ artist.bio }}</li>
-        {% load static %}
-        <img src="{% static artist.images.url %}"/>
     {% endfor %}
     </ul>
-{% if artists.first_name != "Sweets" %}
+{% elif artists.first_name != "Sweets" %}
     <ul>
     {% for artist in artists %}
         <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
         <li>{{ artist.bio }}</li>
-        {% load static %}
-        <img src="{% static artist.images.url %}"/>
     {% endfor %}
     </ul>
 {% else %}

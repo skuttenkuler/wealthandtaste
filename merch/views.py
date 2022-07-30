@@ -6,7 +6,7 @@ from .models import Merch
 
 def index(request):
     items = Merch.objects.all()
-    template = loader.get_template('merch/index.html')
+    template = loader.get_template('index.html')
     context = {
         'items': items
     }
