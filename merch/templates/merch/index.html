@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if items %}
     <ul>
     {% for item in items %}
@@ -11,3 +15,5 @@
 {% else %}
     <p>Currently out of stock</p>
 {% endif %}
+
+{% endblock %}

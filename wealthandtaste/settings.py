@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'artists',
-    'merch'
+    'merch',
+    'location',
+    'booking'
 ]
 
 MIDDLEWARE = [

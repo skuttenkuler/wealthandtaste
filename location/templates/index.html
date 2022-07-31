@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="location">
+    <ul>
+        {% if details %}
+            <li>{{ details.buisness_name }}</li>
+            <li>{{ details.phone }}</li>
+            <li>{{ details.address }}</li>
+        {% endif%}
+    </ul>
+</div>
+{% endblock %}

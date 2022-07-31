@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if artists.first_name == "Sweets" %}
     <ul>
     {% for artist in artists %}
@@ -15,3 +19,5 @@
 {% else %}
     <p>No artist are available.</p>
 {% endif %}
+
+{% endblock %}
