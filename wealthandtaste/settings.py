@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'artists',
-    'merch',
+    'merch.apps.MerchConfig',
     'location',
     'booking'
 ]

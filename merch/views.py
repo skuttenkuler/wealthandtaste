@@ -4,10 +4,14 @@ from django.http import HttpResponse
 
 from .models import Merch
 
-def index(request):
-    items = Merch.objects.all()
-    template = loader.get_template('index.html')
-    context = {
-        'items': items
-    }
-    return HttpResponse(template.render(context,request))
+def store(request):
+    context = {}
+    return render(request, 'merch/store.html', context)
+
+def cart(request):
+    context = {}
+    return render(request, 'merch/cart.html', context)
+
+def checkout(request):
+    context = {}
+    return render(request, 'merch/checkout.html', context)
