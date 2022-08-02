@@ -7,32 +7,18 @@
 <h2>Store Page</h2>
 
 <div class="row">
+    {% for product in products %}
         <div class="col-lg-4">
+            <img class="thumbnail" src="{{product.image_1.url}}">
             <div class="box-element product">
-                <h4>block</p>
+                <h4>{{ product.title }}</p>
                     <hr/>
+                    <p>{{ product.description}}</p>
                     <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                    <h4>$20</h4>
+                    <h4>${{ product.price|floatformat:2 }}</h4>
             </div>
         </div>
-    
-        <div class="col-lg-4">
-            <div class="box-element product">
-                <h4>block</p>
-                    <hr/>
-                    <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                    <h4>$20</h4>
-            </div>
-        </div>
-    
-        <div class="col-lg-4">
-            <div class="box-element product">
-                <h4>block</h4>
-                <hr/>
-                <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                <h4>$20</h4>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

@@ -16,6 +16,8 @@ Including another URLconf
 from django.urls import path, include
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 
 from . import views
 
@@ -26,4 +28,6 @@ urlpatterns = [
     path('merch/', include('merch.urls'), name="store"),
     path('booking/', include('booking.urls'), name="booking"),
     path('location/', include('location.urls'), name="location")
-]
+
+] 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

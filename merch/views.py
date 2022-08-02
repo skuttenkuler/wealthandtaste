@@ -2,10 +2,13 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 
-from .models import Merch
+from .models import *
 
 def store(request):
-    context = {}
+    products = Merch.objects.all()
+    context = {
+        "products": products
+    }
     return render(request, 'merch/store.html', context)
 
 def cart(request):
