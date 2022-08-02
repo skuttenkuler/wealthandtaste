@@ -13,6 +13,15 @@ class Merch(models.Model):
     def __str__(self):
         return self.title
 
+    #image render safe check
+    @property
+    def imgURL(self):
+        try:
+            url = self.image_1.url
+        except:
+            url = ''
+        return url
+
 class Customer(models.Model):
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
