@@ -36,7 +36,13 @@
                     <div style="flex:2"><img class="row-image" src="{{item.product.imgURL}}"></div>
                     <div style="flex:2"><strong>{{item.product.title}}</strong></div>
                     <div style="flex:2"><strong>{{item.product.price|floatformat:2}}</strong></div>
-                    <div style="flex:2"><strong>x{{item.quantity}}</strong></div>
+                    <div style="flex:2">
+                        <p>x{{item.quantity}}</p>
+                        <div class="quantity-counter">
+                            <span data-product={{item.product.id}} data-action="add" class="change-quantity update-cart">+</span>
+                            <span data-product={{item.product.id}} data-action="remove" class="change-quantity update-cart">-</span>
+                        </div>
+                    </div>
                     <div style="flex:2"><strong>{{item.get_total}}</strong></div>
                     <div style="flex:2"></div>
             </div>       
