@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, JsonResponse
+import datetime
 import json
 
 from .models import *
@@ -90,5 +91,8 @@ def updateItem(request):
     return JsonResponse('Item was addes', safe=False)
 
 def processOrder(request):
-    print(request.body)
+    #create order timestamp
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
     return JsonResponse('payment complete', safe=False)

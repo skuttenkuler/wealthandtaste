@@ -35,6 +35,8 @@ function updateCustomerOrder(productID, action){
         return res.json()
     }).then((data) =>{
         console.log(data)
+        // once updated reload page
+        location.reload()
     })
 
 }
