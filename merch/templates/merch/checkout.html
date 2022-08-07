@@ -9,7 +9,8 @@
 <div class="row">
         <div class="col-lg-6" id="user-shipping">
             <div class="box-element" id="form-wrapper">
-                    <form id="form">
+                    <form id="form" method="POST">
+                            {% csrf_token %}
                             <div id="user-info">
                                 <div class="form-field">
                                     <input required class="form-control" type="text" name="name" placeholder="Name..">
@@ -41,8 +42,9 @@
                         </form>
             </div>
             <br>
-            <div class="box-element hidden" id="payment-info">
+            <div class="box-element visually-hidden" id="payment-info">
                 <span>Paypal</span>
+                <button id="payment">Payment</button>
             </div>
             
         </div>
@@ -69,12 +71,74 @@
         </div>
     </div>
     <script type="text/javascript">
-        var shipping = '{{order.shipping}}'
-        var ocount = '{{order.itemscount}}'
-        console.log(shipping)
+        var shipping = '{{order.shipping}}';
+        var total = '{{order.get_cart_total|floatformat:2}}'
+        //console.log(shipping)
         //if no order, hide shipping info
         if(shipping == 'False'){
             document.getElementById('user-shipping').innerHTML = '<h2>No items in cart</h2>';
         }
+
+        //shipping form
+        var form = document.getElementById('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            //console.log("submitted")
+            document.getElementById('form-button').classList.add('visually-hidden') 
+            document.getElementById('payment-info').classList.remove('visually-hidden') 
+        })
+        document.getElementById('payment').addEventListener('click', (e)=>{
+            submitFormData()
+        })
+        function submitFormData(){
+            //console.log('submitted')
+            //user data
+            var userFormData = {
+                'name':null,
+                'email':null,
+                'total':total
+            };
+            //shipping data
+            var userShippingData = {
+                'address': null,
+                'city': null,
+                'state': null,
+                'zipcode': null,
+            }
+            //validation and set form values
+            if(shipping != 'False'){
+                userShippingData.address = form.address.value
+                userShippingData.city = form.city.value
+                userShippingData.state = form.state.value
+                userShippingData.zipcode = form.zipcode.value
+            }
+            if(user == 'AnonymousUser'){
+                userFormData.name = form.name.value
+                userFormData.email = form.email.value
+                userFormData.total = form.total.value
+            }
+           //process order 
+            var url = "process_order/";
+            fetch(url, {
+                method: 'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken': csrftoken
+                },
+                body:JSON.stringify({
+                    'form':userFormData, 
+                    'shipping': userShippingData
+                })
+            }).then((res) => {
+                return res.json();
+            }).then((data) => {
+                console.log("success: ", data);
+                alert("Transaction complete");
+                window.location.href = "{% url 'home' %}"
+                location.reload()
+            })
+
+        }
+
     </script>
 {% endblock %}

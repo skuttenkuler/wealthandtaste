@@ -88,3 +88,7 @@ def updateItem(request):
     
 
     return JsonResponse('Item was addes', safe=False)
+
+def processOrder(request):
+    print(request.body)
+    return JsonResponse('payment complete', safe=False)
