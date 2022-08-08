@@ -33,13 +33,39 @@ def cart(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
+        #get cookie data, if no cookie , create it
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+            #print(cart)
+        except:
+            cart = {}
+        print("Cart: ", cart)
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0,'shipping':False}
         cartItems = order['get_cart_items']
-    context = {
-        "items":items,
-        "order": order,
-        "cartItems": cartItems
+
+        for i in cart:
+            cartItems += cart[i]["quantity"]
+            product = Merch.objects.get(id=i)
+            total = (product.price * cart[i]["quantity"])
+            order['get_cart_total'] += total
+            order['get_cart_items'] += cart[i]["quantity"]
+    
+            item = {
+                'product': {
+                    'id': product.id,
+                    'title': product.title,
+                    'price': product.price,
+                    'imgURL': product.imgURL,
+                },
+                'quantity': cart[i]["quantity"],
+                'get_total': total
+            }
+            items.append(item)
+    context= {
+        'items':items,
+        'order': order,
+        'cartItems': cartItems
     }
     return render(request, 'merch/cart.html', context)
 
