@@ -3,21 +3,13 @@ from django.template import loader
 from django.http import HttpResponse, JsonResponse
 import datetime
 import json
-from .utils import cookieCart
+from .utils import cartData
 from .models import *
 
 def store(request):
     products = Merch.objects.all()
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        cookieData = cookieCart(request)
-        cartItems = cookieData['cartItems']
-    
-    products = Merch.objects.all()
+    data = cartData(request)
+    cartItems = data['cartItems']
     context = {
         "cartItems": cartItems,
         "products":products
@@ -25,17 +17,10 @@ def store(request):
     return render(request, 'merch/store.html', context)
 
 def cart(request):
-
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        cookieData = cookieCart(request)
-        cartItems = cookieData['cartItems']
-        order = cookieData['order']
-        items = cookieData['items']
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
     context= {
         'cartItems': cartItems,
         'order': order,
@@ -44,16 +29,10 @@ def cart(request):
     return render(request, 'merch/cart.html', context)
 
 def checkout(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        cookieData = cookieCart(request)
-        cartItems = cookieData['cartItems']
-        order = cookieData['order']
-        items = cookieData['items']
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
     context = {
         "cartItems": cartItems,
         "order": order,
