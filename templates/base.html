@@ -29,27 +29,31 @@
       const csrftoken = getToken('csrftoken');
       //COOKIE SETUP
       function getCookie(name) {
-        //split cookie string and get all key/values
-        let cookieArr = document.cookie.split(";");
-        for(var i = 0; i < cookieArr.length; i++){
-          var cookiePair = cookieArr[i].split("=");
-          //remove whitespace and compare
-          if(name == cookiePair[0].trim()){
-            //decode
-            return decodeURIComponent(cookiePair[1]);
-          }
-        }
-        //if not found
-        return null;
-    }
-    var cart = JSON.parse(getCookie('cart'));
-    if(cart == undefined){
-      cart = {};
-      console.log("cart created");
-      //create cookie
-      document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
-    }
-    console.log('Cart: ', cart)
+		    // Split cookie string and get all individual name=value pairs in an array
+		    var cookieArr = document.cookie.split(";");
+
+		    // Loop through the array elements
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Removing whitespace at the beginning of the cookie name
+		        and compare it with the given string */
+		        if(name == cookiePair[0].trim()) {
+		            // Decode the cookie value and return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // Return null if not found
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			//console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
     </script>
   </head>
   <body>

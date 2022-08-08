@@ -39,8 +39,8 @@
                     <div style="flex:2">
                         <p>x{{item.quantity}}</p>
                         <div class="quantity-counter">
-                            <span data-product={{item.product.id}} data-action="add" class="change-quantity update-cart">+</span>
-                            <span data-product={{item.product.id}} data-action="remove" class="change-quantity update-cart">-</span>
+                            <button data-product={{item.product.id}} data-action="add" class="update-cart change-quantity">+</button>
+                            <button data-product={{item.product.id}} data-action="remove" class="update-cart change-quantity">-</button>
                         </div>
                     </div>
                     <div style="flex:2"><strong>{{item.get_total}}</strong></div>

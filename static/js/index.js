@@ -68,6 +68,6 @@ function updateCustomerOrder(productID, action){
         // once updated reload page
         //location.reload()
     })
-
+    window.location.reload()
 }
 
