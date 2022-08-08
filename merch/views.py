@@ -3,7 +3,7 @@ from django.template import loader
 from django.http import HttpResponse, JsonResponse
 import datetime
 import json
-from .utils import cartData
+from .utils import *
 from .models import *
 
 def store(request):
@@ -75,5 +75,12 @@ def processOrder(request):
     #create order timestamp
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
+    customer, order = CustomerOrder(request, data)
 
+    total = float(data['form']['total'])
+    order.transaction_id = transaction_id
+    if total == float(order.get_cart_total):
+        order.complete = True
+    order.save()
     return JsonResponse('payment complete', safe=False)
+

@@ -58,3 +58,42 @@ def cartData(req):
         'order': order,
         'items': items
     }
+
+def CustomerOrder(request,data):
+    #print('Cookies', request.COOKIES)
+    #FOR ANONYMOUS USERS
+    #get user info and cookie data
+    name = data['form']['name']
+    email = data['form']['email']
+
+    cookieData = cartData(request)
+    items = cookieData['items']
+
+    customer, created = Customer.object.get_or_create(
+        email=email,
+    )
+    customer.name = name
+    #save the customer for future
+    customer.save()
+    order = Order.objects.create(
+        customer=customer,
+        complete=False
+    )
+    for item in items:
+        product = Merch.objects.get(id=item['product']['id'])
+        orderItem = OrderItem.objects.create(
+            product=product,
+            order=order,
+            quantity=item['quantity']
+        )
+
+    if order.shipping == True:
+        ShippingAddress.objects.create(
+            customer=customer,
+            order=order,
+            address=data['shipping']['address'],
+            city=data['shipping']['city'],
+            state=data['shipping']['state'],
+            zipcode=data['shipping']['zipcode']
+        )
+    return customer, order
