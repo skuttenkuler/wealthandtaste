@@ -8,20 +8,22 @@ for(var i = 0; i < updateBtns.length; i++){
         //console.log(data)
         var productID = e.target.dataset.product;
         var action = e.target.dataset.action;
-        console.log("User: ", user)
-        console.log(productID, action)
+        //console.log("User: ", user)
+        //console.log(productID, action)
 
         if(user == 'AnonymousUser'){
-            addCookieItem(productID, action)
+            addCookieItem(productID, action);
+            
         }
         else{
-            updateCustomerOrder(productID, action)
+            updateCustomerOrder(productID, action);
+           
         }
     })
 }
 //user not logged in update cookie cart
-function addCookieItem(productID, action){
-    console.log("not logged in");
+async function addCookieItem(productID, action){
+    //console.log("not logged in");
     if(action == 'add'){
         if(cart[productID] == undefined){
             cart[productID] = {'quantity':1};
@@ -30,7 +32,7 @@ function addCookieItem(productID, action){
         }
     }
     if(action == 'remove'){
-        cart[productID]['quantity'] - 1;
+        cart[productID]['quantity'] -= 1;
 
         if(cart[productID]['quantity'] <= 0){
             console.log("removed Item")
@@ -40,10 +42,11 @@ function addCookieItem(productID, action){
 
     //set cookie
     console.log('CART:', cart)
-	document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
-	
-	//location.reload()
+    document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    
+    window.location.reload()
 }
+
 function updateCustomerOrder(productID, action){
 
     var url = 'update_item/';
