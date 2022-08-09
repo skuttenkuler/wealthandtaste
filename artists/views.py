@@ -10,5 +10,12 @@ def index(request):
         'artists': artists
     }
     return render(request, 'artists/index.html', context)
-def detail(request, artists):
-    return HttpResponse("<h2>Artist: " + artists.first_name + " " + artists.last_name +"</h2>")
+
+
+def single_artist(request,id):
+    artist = Artist.objects.get(id=id)
+   
+    context= {
+        'artist': artist
+    }
+    return render(request, 'artists/artist.html', context)

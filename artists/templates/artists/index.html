@@ -1,23 +1,42 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-
-{% if artists.first_name == "Sweets" %}
-    <ul>
+<div class="container">
+    {% if artists.first_name == "Sweets" %}
     {% for artist in artists %}
-        <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
-        <li>{{ artist.bio }}</li>
+    <script>console.log(artist)</script>
+    <div class="row">
+        <div class="col-lg-4">
+            <ul>
+                <div><img src="{{ artist.head_shot.url }}" alt=""></div>
+                <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
+                <li>{{ artist.bio }}</li>
+            </ul>
+            <ul>
+                <img src="{{ artist.image_1.url }}" alt="">
+                <img src="{{ artist.image_2.url }}" alt="">
+                <img src="{{ artist.image_3.url }}" alt="">
+                <img src="{{ artist.image_4.url }}" alt="">
+                <img src="{{ artist.image_5.url }}" alt="">
+            </ul>
     {% endfor %}
-    </ul>
-{% elif artists.first_name != "Sweets" %}
-    <ul>
-    {% for artist in artists %}
-        <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
-        <li>{{ artist.bio }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No artist are available.</p>
-{% endif %}
-
+        {% elif artists.first_name != "Sweets" %}
+        {% for artist in artists %}
+                <ul>
+                    <img src="{{ artist.head_shot.url }}" alt="">
+                    <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
+                </ul>
+                <ul>
+                        <img src="{{ artist.image_1.url }}" alt="">
+                        <img src="{{ artist.image_2.url }}" alt="">
+                        <img src="{{ artist.image_3.url }}" alt="">
+                        <img src="{{ artist.image_4.url }}" alt="">
+                        <img src="{{ artist.image_5.url }}" alt="">
+                </ul>
+        {% endfor %}
+        {% else %}
+           <p>No artist are available.</p>
+            {% endif %}
+</div>
 {% endblock %}
