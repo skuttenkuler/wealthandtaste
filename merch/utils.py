@@ -69,22 +69,25 @@ def CustomerOrder(request,data):
     cookieData = cartData(request)
     items = cookieData['items']
 
-    customer, created = Customer.object.get_or_create(
+    customer, created = Customer.objects.get_or_create(
         email=email,
     )
     customer.name = name
     #save the customer for future
     customer.save()
+
     order = Order.objects.create(
         customer=customer,
         complete=False
     )
+    print(items.values())
     for item in items:
-        product = Merch.objects.get(id=item['product']['id'])
+        print("id: ",item.product_id)
+        product = Merch.objects.get(id=item.product_id)
         orderItem = OrderItem.objects.create(
             product=product,
             order=order,
-            quantity=item['quantity']
+            quantity=item.quantity
         )
 
     if order.shipping == True:
