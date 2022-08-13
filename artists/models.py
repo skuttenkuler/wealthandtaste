@@ -19,39 +19,26 @@ class Artist(models.Model):
         return self.first_name + " " + self.last_name     
     #image render safe check
     @property
-    def imgURL(self):
+    def image_url(self):
         try:
-            h_url = self.head_shot.url,
-            img1 = self.image_1.url
-            img2 = self.image_2.url
-            img3 = self.image_3.url
-            img4 = self.image_4.url
-            img5 = self.image_5.url
-
+            imgs = {
+                "headshot": self.head_shot.url,
+                "img1" :self.image_1.url,
+                "img2" : self.image_2.url,
+                "img3" : self.image_3.url,
+                "img4" : self.image_4.url,
+                "img5" : self.image_5.url
+            }
         except:
-            h_url = ''
-            img1 = ''
-            img2 = ''
-            img3 = ''
-            img4 = ''
-            img5 = ''
-
-        return h_url,img1,img2,img3,img4,img5
-        # try:
-        #         headshot = self.head_shot.url
-        #         img1 = self.image_1.url
-        #         img2 = self.image_2.url
-        #         img3 = self.image_3.url
-        #         img4 = self.image_4.url
-        #         img5 = self.image_5.url
-        # except:
-        #     headshot = ''
-        #     img1 = ''
-        #     img2 = ''
-        #     img3 = ''
-        #     img4 = ''
-        #     img5 = ''
-        # return headshot, img1, img2, img3, img4, img5
+            imgs = {
+                "headshot": '',
+                "img1" :'',
+                "img2" : '',
+                "img3" : '',
+                "img4" : '',
+                "img5" : ''
+            }
+        return imgs
 
 class GuestArtist(models.Model):
     first_name = models.CharField(max_length=100)

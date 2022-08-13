@@ -7,14 +7,14 @@
 <div class="container">
     <h2>{{artist.first_name}}</h2>
     <h2>{{artist.last_name}}</h2>
-    <img src="{{ artist.head_shot.url }}" alt="">
+    <img src="{{ artist.image_url.headshot }}" alt="">
     <p>{{artist.bio}}</p>
     <ul>
-            <li><img src="{{ artist.image_1.url }}" alt=""></li>
-            <li><img src="{{ artist.image_2.url }}" alt=""></li>
-            <li><img src="{{ artist.image_3.url }}" alt=""></li>
-            <li><img src="{{ artist.image_4.url }}" alt=""></li>
-            <li><img src="{{ artist.image_5.url }}" alt=""></li>
+            <li><img src="{{ artist.image_url.img1 }}" alt=""></li>
+            <li><img src="{{ artist.image_url.img2 }}" alt=""></li>
+            <li><img src="{{ artist.image_url.img3 }}" alt=""></li>
+            <li><img src="{{ artist.image_url.img4 }}" alt=""></li>
+            <li><img src="{{ artist.image_url.img5 }}" alt=""></li>
     </ul>
 
 </div>

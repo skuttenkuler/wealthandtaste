@@ -3,40 +3,37 @@
 
 {% block content %}
 <div class="container">
-    {% if artists.first_name == "Sweets" %}
+    {% if artist.first_name == "Sweets" %}
     {% for artist in artists %}
-    <script>console.log(artist)</script>
     <div class="row">
         <div class="col-lg-4">
             <ul>
-                <div><img src="{{ artist.head_shot.url }}" alt=""></div>
+                <div><img src="{{ artist.image_url.headshot }}" alt=""></div>
                 <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
                 <li>{{ artist.bio }}</li>
             </ul>
             <ul>
-                <img src="{{ artist.image_1.url }}" alt="">
-                <img src="{{ artist.image_2.url }}" alt="">
-                <img src="{{ artist.image_3.url }}" alt="">
-                <img src="{{ artist.image_4.url }}" alt="">
-                <img src="{{ artist.image_5.url }}" alt="">
+                <img src="{{ artist.image_url.img1 }}" alt="">
+                <img src="{{ artist.image_url.img2 }}" alt="">
+                <img src="{{ artist.image_url.img3 }}" alt="">
+                <img src="{{ artist.image_url.img4 }}" alt="">
+                <img src="{{ artist.image_url.img5 }}" alt="">
             </ul>
-    {% endfor %}
+        {% endfor %}
         {% elif artists.first_name != "Sweets" %}
         {% for artist in artists %}
                 <ul>
-                    <img src="{{ artist.head_shot.url }}" alt="">
+                        <div><img src="{{ artist.image_url.headshot }}" alt=""></div>
                     <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
                 </ul>
                 <ul>
-                        <img src="{{ artist.image_1.url }}" alt="">
-                        <img src="{{ artist.image_2.url }}" alt="">
-                        <img src="{{ artist.image_3.url }}" alt="">
-                        <img src="{{ artist.image_4.url }}" alt="">
-                        <img src="{{ artist.image_5.url }}" alt="">
+                        <img src="{{ artist.image_url.img1 }}" alt="">
+                        <img src="{{ artist.image_url.img2 }}" alt="">
+                        <img src="{{ artist.image_url.img3 }}" alt="">
+                        <img src="{{ artist.image_url.img4 }}" alt="">
+                        <img src="{{ artist.image_url.img5 }}" alt="">
                 </ul>
-        {% endfor %}
-        {% else %}
-           <p>No artist are available.</p>
-            {% endif %}
+                {% endfor %}
+                {% endif %}
 </div>
 {% endblock %}
