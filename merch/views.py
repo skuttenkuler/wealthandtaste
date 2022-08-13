@@ -50,7 +50,7 @@ def updateItem(request):
 
     #get user and product, update orderItem
     customer = request.user.customer
-    print(customer)
+    #print(customer)
     product = Merch.objects.get(id=productID)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
@@ -75,8 +75,9 @@ def processOrder(request):
     #create order timestamp
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
+    print(data)
     customer, order = CustomerOrder(request, data)
-
+    #check total matches in cart
     total = float(data['form']['total'])
     order.transaction_id = transaction_id
     if total == float(order.get_cart_total):

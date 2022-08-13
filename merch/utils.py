@@ -66,7 +66,8 @@ def CustomerOrder(request,data):
     name = data['form']['name']
     email = data['form']['email']
 
-    cookieData = cartData(request)
+    cookieData = cookieCart(request)
+    #print("ITEMS::::",cookieData['items'])
     items = cookieData['items']
 
     customer, created = Customer.objects.get_or_create(
@@ -80,14 +81,13 @@ def CustomerOrder(request,data):
         customer=customer,
         complete=False
     )
-    print(items.values())
     for item in items:
-        print("id: ",item.product_id)
-        product = Merch.objects.get(id=item.product_id)
+        product = Merch.objects.get(id=item['product']['id'])
+        #print("PRODUCT::::::", product)
         orderItem = OrderItem.objects.create(
             product=product,
             order=order,
-            quantity=item.quantity
+            quantity=item['quantity']
         )
 
     if order.shipping == True:
