@@ -3,12 +3,20 @@ body,html{
 	padding: 0px;
 	height: 100%;
 	width: 100%;
-    overflow-x: hidden;
+	overflow-x: hidden;
+	background-color:black;
 }
 footer{
     position: fixed;
     bottom: 0;
-    width: 100%;
+	width: 100%;
+	height: 100px;
+}
+.home{
+	margin-bottom:100px;
+}
+.row{
+	color: white;
 }
 
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
@@ -81,6 +89,10 @@ footer{
 	width: 100%;
 	height: auto;
 }
+.location-sec li{
+	list-style: none;
+	color: #fff;
+}
 .booking-sec{
 	background-color: #000000;
 	height: 100%;
@@ -92,4 +104,23 @@ footer{
 .booking-sec img{
 	width: 100%;
 	height: auto;
+}
+.thumbnail{
+	width: 50%;
+	height: auto;
+	margin: 0 auto;
+}
+.merch-tile{
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	text-align: center;
+}
+.artist-tile{
+	display:inline-block
+}
+.artist-headshot{
+	width: 25%;
+	height: auto;
+	margin: 0 auto;
 }

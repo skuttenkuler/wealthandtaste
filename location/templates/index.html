@@ -1,14 +1,18 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
-<div class="location">
-    <ul>
-        {% if details %}
-            <li>{{ details.buisness_name }}</li>
-            <li>{{ details.phone }}</li>
-            <li>{{ details.address }}</li>
-        {% endif%}
-    </ul>
-</div>
+<section class="location-sec">
+        <div class="container">
+            <img src="{% static 'images/home2.jpg' %}" alt="Shop Image"/>
+            <ul>
+                {% for detail in details %}
+                <li>{{ detail.title }}</li>
+                <li>{{ detail.address }}</li>
+                <li>{{detail.city}} {{ detail.state }} {{deatil.zipcode}}</li>
+                <li>{{ detail.phone }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
 {% endblock %}

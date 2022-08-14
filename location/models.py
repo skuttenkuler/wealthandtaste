@@ -7,6 +7,7 @@ class Location(models.Model):
     city = models.CharField(max_length=100,default="Nashville")
     state = models.CharField(max_length=2,default="TN")
     zipcode = models.CharField(max_length=5, null=True)
+    phone = models.CharField(max_length=12, null=True)
 
 
     def __str__(self):
