@@ -18,28 +18,24 @@ class Artist(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name     
     #image render safe check
+    
     @property
     def image_url(self):
-        try:
-            imgs = {
-                "headshot": self.head_shot.url,
-                "img1" :self.image_1.url,
-                "img2" : self.image_2.url,
-                "img3" : self.image_3.url,
-                "img4" : self.image_4.url,
-                "img5" : self.image_5.url
-            }
-        except:
-            imgs = {
-                "headshot": '',
-                "img1" :'',
-                "img2" : '',
-                "img3" : '',
-                "img4" : '',
-                "img5" : ''
-            }
-        return imgs
-
+        def get_img_url(img):
+            if img:
+                return img.url
+            else:
+                return ''
+        return{
+                "headshot": get_img_url(self.head_shot),
+                "img1" :get_img_url(self.image_1),
+                "img2" : get_img_url(self.image_2),
+                "img3" : get_img_url(self.image_3),
+                "img4" : get_img_url(self.image_4),
+                "img5" : get_img_url(self.image_5)
+        }
+    
+    
 class GuestArtist(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

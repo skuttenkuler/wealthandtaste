@@ -3,16 +3,15 @@
 
 {% block content %}
 <div class="container">
-    {% if artist.first_name == "Sweets" %}
     {% for artist in artists %}
     <div class="row">
         <div class="col-lg-4">
-            <ul>
-                <div><img src="{{ artist.image_url.headshot }}" alt=""></div>
+            <ul class="artist-row">
+                <img src="{{ artist.image_url.headshot }}" alt="">
                 <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
                 <li>{{ artist.bio }}</li>
             </ul>
-            <ul>
+            <ul class="tattoo-tiles">
                 <img src="{{ artist.image_url.img1 }}" alt="">
                 <img src="{{ artist.image_url.img2 }}" alt="">
                 <img src="{{ artist.image_url.img3 }}" alt="">
@@ -20,20 +19,5 @@
                 <img src="{{ artist.image_url.img5 }}" alt="">
             </ul>
         {% endfor %}
-        {% elif artists.first_name != "Sweets" %}
-        {% for artist in artists %}
-                <ul>
-                        <div><img src="{{ artist.image_url.headshot }}" alt=""></div>
-                    <li><a href="/artists/{{ artist.id }}/">{{ artist.first_name }}</a></li>
-                </ul>
-                <ul>
-                        <img src="{{ artist.image_url.img1 }}" alt="">
-                        <img src="{{ artist.image_url.img2 }}" alt="">
-                        <img src="{{ artist.image_url.img3 }}" alt="">
-                        <img src="{{ artist.image_url.img4 }}" alt="">
-                        <img src="{{ artist.image_url.img5 }}" alt="">
-                </ul>
-                {% endfor %}
-                {% endif %}
 </div>
 {% endblock %}

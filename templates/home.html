@@ -28,25 +28,14 @@
     <section class="artist-sec">
         <div class="row">
             <ul>
-            {% if artists.first_name == "Sweets" %}
             {% for artist in artists %}
-             <li class="artist-tile col-lg-4"> 
-                <img src="{{ artist.image_url.headshot }}" alt="">
-                <p>{{ artist.first_name }}</p>
-                <p>{{ artist.last_name }}</p>
-                <p>{{ artist.bio }}</p>
-            </li>
-            {% endfor %}
-            {% else %}
-            {% for artist in artists %}
-             <li class="artist-tile"> 
-                <img class="artist-headshot"src="{{ artist.image_url.headshot }}" alt="{{artist.first_name}} {{artist.last_name}}">
+             <li class="artist-tile col-lg-2"> 
+                <img src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
                 <p>{{ artist.first_name }}</p>
                 <p>{{ artist.last_name }}</p>
                 <a href="{{artist.instagram_link}}"></a>
             </li>
             {% endfor %}
-            {% endif %}
             </ul>
     </section>
 
