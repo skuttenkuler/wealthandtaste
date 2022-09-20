@@ -1,10 +1,19 @@
+@font-face {
+	font-family: "Berkshire";
+	src: url('../fonts/BerkshireSwash-Regular.ttf') format("truetype");
+}
+
 body,html{
     margin: 0px;
 	padding: 0px;
 	height: 100%;
 	width: 100%;
 	overflow-x: hidden;
-	background-color:black;
+	background-color:rgb(153,13,37);
+	font-family: "Berkshire";
+}
+li,a,p,h1,h2,h3,h4{
+	text-shadow: 2px 1px 1px #000000;
 }
 footer{
     position: fixed;
@@ -12,11 +21,15 @@ footer{
 	width: 100%;
 	height: 100px;
 }
+.footer-spacer{
+	height: 120px;
+	width: 100%;
+}
 .home{
 	margin-bottom:100px;
 }
 .row{
-	color: white;
+	color: rgb(255,253,208);
 }
 
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
@@ -26,6 +39,17 @@ footer{
 .nav-cart{
 	display:flex;
 	margin-bottom:-10px;
+}
+#navbar{
+	background-color: rgb(153,13,37) !important;
+	color: rgb(255,253,208);
+}
+.navbar a{
+	color:rgb(255,253,208);
+	
+}
+.navbar a:hover{
+	color: rgb(255,253,208);
 }
 #cart-img{
 	width:25px;
@@ -62,7 +86,7 @@ footer{
 	margin: 0 auto;
 }
 .home button{
-	border:solid white 2px;
+	border:solid rgb(255,253,208);
 	border-radius: 15px;
 	background: none;
 	width:25%;
@@ -78,7 +102,6 @@ footer{
 	position: relative;
 }
 .location-sec{
-	background-color: #000000;
 	height: 100%;
 	position: relative;
 }
@@ -94,16 +117,17 @@ footer{
 	color: #fff;
 }
 .booking-sec{
-	background-color: #000000;
 	height: 100%;
 	position: relative;
 }
 .booking-sec .container{
 	top: 20%;
 }
-.booking-sec img{
-	width: 100%;
-	height: auto;
+
+#home-booking-header{
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 .thumbnail{
 	width: 50%;
@@ -117,25 +141,68 @@ footer{
 	text-align: center;
 }
 .artist-sec{
-	width: 80%;
-	height: auto;
+	width: 98%;
+	height: 100%;
 	display: flex;
 	margin: 0 auto;
 	justify-content: center;
 }
-.artist-sec img{
-	width:20%;
-	height: auto;
+.artist-sec ul{
+	display:flex
 }
 .artist-tile{
-	display:inline-block;
-	text-align: center;
+	display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    justify-content: center;
+    margin-right: 2%;
+    position: relative;
+    width: 31%;
+    height: 46%;
+    background-color: rgb(255,253,208);
+    border-radius: 25px;
+    box-shadow: 8px 8px 1px black;
 	
+}
+.guest-tile{
+	display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    justify-content: center;
+    margin-right: 2%;
+    position: relative;
+    width: 31%;
+    height: 23%;
+    background-color: rgb(255,253,208);
+    border-radius: 25px;
+    box-shadow: 8px 8px 1px black;
+	
+}
+#artist-tile-bg{
+	border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 86%;
+    width: 100%;
+}
+#artist-tile-hs{
+	max-width: 45%;
+	position: absolute;
+	top: 8%;
+	left: 27%;
+	border-radius:50%;
+	box-shadow: 0 0 0px 4px rgb(255,253,208)
+}
+#artist-tile-ig{
+	color: rgb(255,253,208);;
 }
 .artist-headshot{
 	width: 50%;
 	height: auto;
 	margin: 0 auto;
+	position: absolute;
 }
 .artist-row{
 	width: 80%;
@@ -145,6 +212,24 @@ footer{
 	justify-content: center;
 	margin: 0 auto;
 }
+.artist-row img{
+	width: 40%;
+}
 .artist-row li{
 	list-style: none;
+	width: 100%;
+}
+.artist-tile p, .guest-tile p{
+	margin: 0 auto;
+	color: brown;
+	position: absolute;
+	font-size:2rem;
+	bottom: 3%;
+}
+
+.artists-page{
+	background:radial-gradient(rgb(184, 50, 35),rgb(199, 2, 35));
+	height:100%;
+	width:100%;
+	position:relative;
 }
