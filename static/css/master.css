@@ -196,7 +196,7 @@ footer{
 	box-shadow: 0 0 0px 4px rgb(255,253,208)
 }
 #artist-tile-ig{
-	color: rgb(255,253,208);;
+	color: rgb(255,253,208);
 }
 .artist-headshot{
 	width: 50%;
@@ -232,4 +232,30 @@ footer{
 	height:100%;
 	width:100%;
 	position:relative;
+}
+.tattoo-tiles{
+	position: relative;
+}
+.tattoo-tiles img{
+	width: 100%;
+}
+.slick-prev:before {
+	content: "<";
+	color: rgb(255,253,208);
+	font-size: 30px;
+}
+.slick-next:before {
+content: ">";
+color: rgb(255,253,208);
+font-size: 30px;
+}
+.next-arrow{
+	position: absolute;
+	right: 5%;
+	top:38%;
+}
+.prev-arrow{
+	position: absolute;
+	left: 5%;
+	top:38%;
 }

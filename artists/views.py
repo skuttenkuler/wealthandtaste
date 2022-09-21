@@ -2,12 +2,14 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 
-from .models import Artist
+from .models import Artist,GuestArtist
 
 def index(request):
     artists = Artist.objects.all()
+    guests = GuestArtist.objects.all()
     context = {
-        'artists': artists
+        'artists': artists,
+        'guests': guests
     }
     return render(request, 'artists/index.html', context)
 
