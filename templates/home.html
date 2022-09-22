@@ -4,12 +4,15 @@
 
 {% block content %}
 <div class="home">
-    <section class="title-sec">
-        <div class="container">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-            <button><a href="{% url 'artists' %}">View Artists</a></button>
+    <div class="title-sec parallax">
+            <div class="parallax-text">
+                <span class="border">
+                        <h2>Wealth and Taste</h2>
+                        <button><a href="{% url 'artists' %}">View Artists</a></button>
+                </span>
+            </div>
         </div>
-    </section>
+    </div>
     <section class="location-sec">
         <div class="container">
             <img src="{% static 'images/home2.jpg' %}" alt="Shop Image"/>
@@ -17,33 +20,45 @@
         </div>
     </section>
     <section class="booking-sec">
-            <div class="container">
-                <img src="{% static 'images/home2.jpg' %}" alt="Shop Image"/>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-                <div>
-                    <button><a href="{% url 'booking' %}">Book an Appointent</a></button>
+                <div class="booking-sec-left">
+                    <h2>View our Artists</h2>
                 </div>
-            </div>
+                <div>
+                    
+                </div>
+                    <button><a href="{% url 'booking' %}">Book an Appointent</a></button>
+              
     </section>
     <section class="artist-sec">
-        <div class="row">
-            <ul>
+            <ul style="width:100%">
             {% for artist in artists %}
-             <li class="artist-tile col-lg-2"> 
-                <img src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                <p>{{ artist.first_name }}</p>
-                <p>{{ artist.last_name }}</p>
-                <a href="{{artist.instagram_link}}"></a>
+             <li class="artist-tile col-lg-3">
+                <img id="artist-tile-bg" src="{{artist.image_url.img1}}">
+                <img id="artist-tile-hs" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}<a id="artist-tile-ig" href="{{artist.instagram_link}}"><i class="fa-brands fa-instagram"></i></a></p>
+                
             </li>
             {% endfor %}
             </ul>
     </section>
+    <section class="artist-sec">
+        <ul style="width:100%">
+        {% for guest in guests %}
+        {% if guest.current_guest %}
+        <h4>Guest Artists</h4>
+         <li class="artist-tile col-lg-3">
+            <img id="artist-tile-hs" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">
+            <p id="artist-tile-name">{{ guest.first_name }} {{ guest.last_name }}<a id="artist-tile-ig" href="{{guest.instagram_link}}"><i class="fa-brands fa-instagram"></i></a></p>
+        </li>
+        {% else %}
+        <h4>Coming Soon!</h4>
+        <li class="guest-tile col-lg-3">
+           <img id="artist-tile-hs" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">
+           <p id="artist-tile-name">{{ guest.first_name }} {{ guest.last_name }}<a id="artist-tile-ig" href="{{guest.instagram_link}}"><i class="fa-brands fa-instagram"></i></a></p>
+       </li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+</section>
 
-<style>
-.title-sec{
-    background-image: url("{% static 'images/home1.jpg' %}");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-</style>
 {% endblock %}

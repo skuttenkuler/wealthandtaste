@@ -71,8 +71,9 @@ function updateCustomerOrder(productID, action){
     window.location.reload()
 }
 
-//Slick Carousel
+
 $(document).ready(function(){
+    //Slick Carousel
     $(".tattoo-tiles").slick({
         centerMode: true,
         infinite:true,
@@ -104,4 +105,34 @@ $(document).ready(function(){
             }
         ]
     });
+    $(window).addEventListener("scroll", function(){
+        const parallax = $(".parallax");
+        let offset = window.pageYOffset;
+        parallax.style.backgroundPositionY = offset * 0.7 + "px"
+    })
+    
 })
+
+//merch tiles
+var srcSwap = function () {
+    var $this = $(this);
+    var newSrc = $this.data('alt-src');
+    $this.data('alt-src', $this.attr('src'));
+    $this.attr('src', newSrc)
+}
+$(function (){
+    $(".thumbnail").hover(srcSwap,srcSwap)
+});
+//parallax
+window.addEventListener('scroll', throttle(parallax, 14));
+
+function throttle(fn, wait) {
+  var time = Date.now();
+  return function() {
+    if ((time + wait - Date.now()) < 0) {
+      fn();
+      time = Date.now();
+    }
+  }
+};
+

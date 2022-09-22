@@ -1,3 +1,9 @@
+:root{
+	--crimson: rgb(153,13,37);
+	--creme: rgb(255,253,208);
+	--brown: rgb(107,32,24);
+}
+
 @font-face {
 	font-family: "Berkshire";
 	src: url('../fonts/BerkshireSwash-Regular.ttf') format("truetype");
@@ -9,11 +15,14 @@ body,html{
 	height: 100%;
 	width: 100%;
 	overflow-x: hidden;
-	background-color:rgb(153,13,37);
+	background-color:var(--crimson);
 	font-family: "Berkshire";
 }
 li,a,p,h1,h2,h3,h4{
 	text-shadow: 2px 1px 1px #000000;
+}
+a{
+	cursor: pointer;
 }
 footer{
     position: fixed;
@@ -29,7 +38,7 @@ footer{
 	margin-bottom:100px;
 }
 .row{
-	color: rgb(255,253,208);
+	color: var(--creme);
 }
 
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
@@ -41,15 +50,16 @@ footer{
 	margin-bottom:-10px;
 }
 #navbar{
-	background-color: rgb(153,13,37) !important;
-	color: rgb(255,253,208);
+	background-color: var(--crimson) !important;
+	color: var(--creme);
 }
 .navbar a{
-	color:rgb(255,253,208);
+	color:var(--creme);
 	
 }
-.navbar a:hover{
-	color: rgb(255,253,208);
+a:hover{
+	color: var(--creme) !important;
+
 }
 #cart-img{
 	width:25px;
@@ -86,7 +96,7 @@ footer{
 	margin: 0 auto;
 }
 .home button{
-	border:solid rgb(255,253,208);
+	border:solid var(--creme);
 	border-radius: 15px;
 	background: none;
 	width:25%;
@@ -96,6 +106,27 @@ footer{
 	font-size: 120%;
 	color: #fff;
 	text-decoration: none;
+}
+.parallax{
+    position: relative;
+    background-image: url("../images/home1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.8;
+    min-height: 100%;
+}
+.parallax-text{
+    position: absolute;
+    top:50%;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.parallax-text .border{
+    background-color: var(--brown);
+    color: var(--creme)
 }
 .title-sec{
 	height: 100%;
@@ -134,6 +165,12 @@ footer{
 	height: auto;
 	margin: 0 auto;
 }
+.thumbnail-alt{
+	width: 50%;
+	height: auto;
+	margin: 0 auto;
+	display:none;
+}
 .merch-tile{
 	display: flex;
 	flex-direction: column;
@@ -159,7 +196,7 @@ footer{
     position: relative;
     width: 31%;
     height: 46%;
-    background-color: rgb(255,253,208);
+    background-color: var(--creme);
     border-radius: 25px;
     box-shadow: 8px 8px 1px black;
 	
@@ -173,7 +210,7 @@ footer{
     position: relative;
     width: 31%;
     height: 23%;
-    background-color: rgb(255,253,208);
+    background-color: var(--creme);
     border-radius: 25px;
     box-shadow: 8px 8px 1px black;
 	
@@ -193,10 +230,10 @@ footer{
 	top: 8%;
 	left: 27%;
 	border-radius:50%;
-	box-shadow: 0 0 0px 4px rgb(255,253,208)
+	box-shadow: 0 0 0px 4px var(--creme)
 }
 #artist-tile-ig{
-	color: rgb(255,253,208);
+	color: var(--creme);
 }
 .artist-headshot{
 	width: 50%;
@@ -239,23 +276,48 @@ footer{
 .tattoo-tiles img{
 	width: 100%;
 }
-.slick-prev:before {
+.prev-arrow:before {
 	content: "<";
-	color: rgb(255,253,208);
-	font-size: 30px;
 }
-.slick-next:before {
-content: ">";
-color: rgb(255,253,208);
-font-size: 30px;
+.next-arrow:before {
+	content: ">";
 }
 .next-arrow{
 	position: absolute;
-	right: 5%;
-	top:38%;
+	right: 1%;
+	top:29%;
+	z-index: 99;
+	background: transparent;
+	color: var(--creme);
+	font-size: 5rem;
+	border: none;
 }
 .prev-arrow{
 	position: absolute;
-	left: 5%;
-	top:38%;
+	left: 1%;
+	top:29%;
+	z-index: 99;
+	background: transparent;
+	color: var(--creme);
+	font-size: 5rem;
+	border: none;
+}
+.artist-block{
+	display: flex;
+    flex-direction: column;
+    text-align: center;
+	margin: 0 auto;
+	text-decoration: none;
+	color: inherit;
+}
+.artist-block img{
+	width: 50%;
+	margin: 0 auto
+}
+.slick-slide img{
+	min-height: 380px;
+	padding: 13px;
+}
+.parallax-wrapper {
+	overflow-y: hidden !important;
 }
