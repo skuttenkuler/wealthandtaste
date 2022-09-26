@@ -1,6 +1,6 @@
 :root{
-	--crimson: rgb(153,13,37);
-	--creme: rgb(255,253,208);
+	--primary: rgb(153,13,37);
+	--font: rgb(255,253,208);
 	--brown: rgb(107,32,24);
 }
 
@@ -15,7 +15,7 @@ body,html{
 	height: 100%;
 	width: 100%;
 	overflow-x: hidden;
-	background-color:var(--crimson);
+	background-color:var(--primary);
 	font-family: "Berkshire";
 }
 li,a,p,h1,h2,h3,h4{
@@ -30,15 +30,44 @@ footer{
 	width: 100%;
 	height: 100px;
 }
+/* animation keyframes */
+@keyframes animateJumbo {
+	0%{
+		top:200%;
+	}
+	100%{
+		top:50%;
+	}
+}
+@keyframes fadeIn {
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes overlayBlack {
+	0%{
+		background-color:black;
+	}
+	100%{
+		background-color:var(--primary);
+	}
+}
+
 .footer-spacer{
 	height: 120px;
 	width: 100%;
 }
+
 .home{
 	margin-bottom:100px;
+	animation: fadeIn 3s ease-out;
+	transition: overlayBlack 3s ease-out;
 }
 .row{
-	color: var(--creme);
+	color: var(--font);
 }
 
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
@@ -50,15 +79,16 @@ footer{
 	margin-bottom:-10px;
 }
 #navbar{
-	background-color: var(--crimson) !important;
-	color: var(--creme);
+	background-color: var(--primary) !important;
+	color: var(--font);
+	box-shadow: 4px 5px 3px black;
 }
+
 .navbar a{
-	color:var(--creme);
-	
+	color:var(--font);
 }
 a:hover{
-	color: var(--creme) !important;
+	color: var(--font) !important;
 
 }
 #cart-img{
@@ -96,7 +126,7 @@ a:hover{
 	margin: 0 auto;
 }
 .home button{
-	border:solid var(--creme);
+	border:solid var(--font);
 	border-radius: 15px;
 	background: none;
 	width:25%;
@@ -114,19 +144,20 @@ a:hover{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    opacity: 0.8;
     min-height: 100%;
 }
+
 .parallax-text{
-    position: absolute;
-    top:50%;
+	position: absolute;
+	top:50%;
     width: 100%;
     text-align: center;
-    text-transform: uppercase;
+	text-transform: uppercase;
+	animation: animateJumbo 3s ease;
 }
 .parallax-text .border{
     background-color: var(--brown);
-    color: var(--creme)
+    color: var(--font)
 }
 .title-sec{
 	height: 100%;
@@ -135,6 +166,13 @@ a:hover{
 .location-sec{
 	height: 100%;
 	position: relative;
+	background-color: black;
+}
+.location-header{
+	font-size: 4rem;
+}
+.location-sec ul{
+	padding:0;
 }
 .location-sec .container{
 	top: 20%;
@@ -143,9 +181,14 @@ a:hover{
 	width: 100%;
 	height: auto;
 }
-.location-sec li{
+.location-sec h4,p{
 	list-style: none;
-	color: #fff;
+	color: var(--font);
+}
+.location-sec p{
+	list-style: none;
+	color: var(--font);
+	font-size: 1.5rem;
 }
 .booking-sec{
 	height: 100%;
@@ -196,10 +239,13 @@ a:hover{
     position: relative;
     width: 31%;
     height: 46%;
-    background-color: var(--creme);
+    background-color: var(--font);
     border-radius: 25px;
     box-shadow: 8px 8px 1px black;
-	
+	transition: all .2s ease-in-out; 
+}
+.tile:hover{
+transform: scale(1.05);
 }
 .guest-tile{
 	display: flex;
@@ -210,7 +256,7 @@ a:hover{
     position: relative;
     width: 31%;
     height: 23%;
-    background-color: var(--creme);
+    background-color: var(--font);
     border-radius: 25px;
     box-shadow: 8px 8px 1px black;
 	
@@ -230,10 +276,10 @@ a:hover{
 	top: 8%;
 	left: 27%;
 	border-radius:50%;
-	box-shadow: 0 0 0px 4px var(--creme)
+	box-shadow: 0 0 0px 4px var(--font)
 }
 #artist-tile-ig{
-	color: var(--creme);
+	color: var(--font);
 }
 .artist-headshot{
 	width: 50%;
@@ -288,7 +334,7 @@ a:hover{
 	top:29%;
 	z-index: 99;
 	background: transparent;
-	color: var(--creme);
+	color: var(--font);
 	font-size: 5rem;
 	border: none;
 }
@@ -298,7 +344,7 @@ a:hover{
 	top:29%;
 	z-index: 99;
 	background: transparent;
-	color: var(--creme);
+	color: var(--font);
 	font-size: 5rem;
 	border: none;
 }
@@ -320,4 +366,20 @@ a:hover{
 }
 .parallax-wrapper {
 	overflow-y: hidden !important;
+}
+
+@media screen and (max-width:767px){
+
+.container{
+	width: 80%;
+	left: 10%;
+}
+.location-header{
+	font-size: 2rem;
+}
+.location-sec p{
+	margin-bottom: 0.5rem;
+}
+
+
 }
