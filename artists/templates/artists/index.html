@@ -7,7 +7,7 @@
     {% for artist in artists %}
     <div class="row">
             <div class="artist-row">
-                <a class="artist-block"href="/artists/{{ artist.id }}/">
+                <a class="tile artist-block"href="/artists/{{ artist.id }}/">
                 <img src="{{ artist.image_url.headshot }}" alt="">
                 <h4>{{ artist.first_name }} {{ artist.last_name }}</h4>
                 </a>

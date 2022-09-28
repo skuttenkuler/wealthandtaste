@@ -62,12 +62,15 @@ class GuestArtist(models.Model):
                 "headshot": get_img_url(self.head_shot)
     }
     @property
-    def current_guest(self):
-        if self.start_date >= date.today() and self.end_date < date.today:
-            return True
-        elif self.end_date <= date.today():
-            self.delete()
-        else:
-            return False
+    def get_current(self):
+        start = self.start_date
+        end = self.end_date
+        today = date.today()
+        #check if there is a (false) active.
+        #logic to set true
+        if start >= today:
+                return True
+        elif today >= end:
+                self.delete()
 
 

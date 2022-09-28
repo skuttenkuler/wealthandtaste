@@ -17,7 +17,14 @@ body,html{
 	overflow-x: hidden;
 	background-color:var(--primary);
 	font-family: "Berkshire";
+	-ms-overflow-style: none;  /* IE and Edge */
+  	scrollbar-width: none;  /* Firefox */
 }
+body::-webkit-scrollbar {
+	display: none;
+  }
+
+	
 li,a,p,h1,h2,h3,h4{
 	text-shadow: 2px 1px 1px #000000;
 }
@@ -144,7 +151,7 @@ a:hover{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    min-height: 100%;
+    min-height: 108%;
 }
 
 .parallax-text{
