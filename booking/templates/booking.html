@@ -9,11 +9,53 @@
             <p>If you know which artist you want to get work from, please contact them via information provided by artist</p>
             <button><a href="{% url 'artists' %}">View Artists</a></button>
             <p>Not sure which artist you'd like to get work by?</p>
-            <form action="#" method="POST">
+            <form action="" method="POST" class="contact-form" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{form}}
-            <input type="submit" value="Send"/>
+               {{form.as_p}}
+                <div class="form-control">
+                    <input type="submit" value="Send"/>
+                </div>
             </form>
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-primary text-center mt-3">
+                        {{message}}
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
+
+<!--  <div class="form-control">
+                    <div class="tag">Name</div>
+                    <input type="text" name="name"/>
+                </div>
+                <div class="form-control">
+                    <div class="tag">Email</div>
+                    <input type="text" name="email"/>
+                </div>
+                <div class="form-control">
+                    <div class="tag">Phone Number</div>
+                    <input type="text" name="phone"/>
+                </div>
+                <div class="form-control">
+                    <div class="tag">Location of Tattoo</div>
+                    <input type="text" name="location"/>
+                </div>
+                <div class="form-control">
+                    <div class="tag">Rough Size</div>
+                    <input type="text" name="size"/>
+                </div>
+                <div class="form-control">
+                    <div class="tag">Brief Description</div>
+                    <textarea type="text" name="description" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-control">
+                    <div class="tag">Color, Black and Grey?</div>
+                    <input type="text" name="style"/>
+                </div>
+                <div class="form-control">
+                    <div class="tag">reference</div>
+                    <input id="id_docfile" type="file" name="file"/>
+                </div> -->

@@ -37,7 +37,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
-
+DEFAULT_FROM_EMAIL = ""
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # Application definition
 
 INSTALLED_APPS = [
@@ -150,8 +151,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Email Config
 EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_USE_SSL = env('EMAIL_USE_SSL')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False

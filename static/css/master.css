@@ -171,7 +171,7 @@ a:hover{
 	position: relative;
 }
 .location-sec{
-	height: 100%;
+	height: 70%;
 	position: relative;
 	background-color: black;
 }
@@ -181,8 +181,19 @@ a:hover{
 .location-sec ul{
 	padding:0;
 }
-.location-sec .container{
+.location-sec > .container, .booking-sec > .container{
+	display: flex;
+    flex-direction: row;
 	top: 20%;
+	left: 10%;
+	width: 100%;
+}
+.location-sec .sec-right{
+	width: 50%;
+	position: relative;
+}
+.location-sec .sec-left{
+	width: 50%;
 }
 .location-sec img{
 	width: 100%;
@@ -198,13 +209,26 @@ a:hover{
 	font-size: 1.5rem;
 }
 .booking-sec{
-	height: 100%;
+	height: 70%;
+	position: relative;
+}
+.booking-sec .sec-right{
+	width: 50%;
+}
+.booking-sec .sec-left{
+	width: 50%;
 	position: relative;
 }
 .booking-sec .container{
 	top: 20%;
 }
-
+.booking-content{
+	position: absolute;
+	position: absolute;
+    width: 100%;
+    justify-content: center;
+    top: 16%;
+}
 #home-booking-header{
 	position: absolute;
 	left: 0;
@@ -235,24 +259,46 @@ a:hover{
 	justify-content: center;
 }
 .artist-sec ul{
-	display:flex
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	grid-row-gap: 2%;
+    grid-column-gap: 1%;
+	justify-content: center;
 }
 .artist-tile{
 	display: flex;
-    flex-direction: row;
-    white-space: nowrap;
     justify-content: center;
-    margin-right: 2%;
     position: relative;
-    width: 31%;
-    height: 46%;
+    width: 90%;
+    height: 100%;
     background-color: var(--font);
     border-radius: 25px;
     box-shadow: 8px 8px 1px black;
 	transition: all .2s ease-in-out; 
+	list-style: none;
 }
 .tile:hover{
 transform: scale(1.05);
+}
+.guest-sec{
+	height: 40%;
+	position: relative;
+}
+.guest-container{
+	width:80%;
+	height: 75%;
+	margin: 0 auto;
+	margin-top:5%;
+	display: flex;
+	flex-direction: row;
+}
+.guest-sec .sec-right{
+	width: 50%;
+	text-align: center;
+}
+.guest-sec .sec-left{
+	width: 50%;
+	text-align: center;
 }
 .guest-tile{
 	display: flex;
@@ -261,12 +307,26 @@ transform: scale(1.05);
     justify-content: center;
     margin-right: 2%;
     position: relative;
-    width: 31%;
-    height: 23%;
+    width:40%;
+    height: 100%;
     background-color: var(--font);
-    border-radius: 25px;
+    border-radius: 50%;
     box-shadow: 8px 8px 1px black;
 	
+}
+.guest-tile img{
+	height: 100%;
+	width: 100%;
+}
+.guest-tile p{
+	top: 104%;
+}
+.guest-list{
+	width: 100%;
+	height: 60%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 #artist-tile-bg{
 	border-top-left-radius: 25px;
@@ -279,11 +339,16 @@ transform: scale(1.05);
 }
 #artist-tile-hs{
 	max-width: 45%;
-	position: absolute;
-	top: 8%;
-	left: 27%;
-	border-radius:50%;
-	box-shadow: 0 0 0px 4px var(--font)
+    position: absolute;
+    top: 8%;
+    left: 27%;
+    border-radius: 50%;
+    box-shadow: 0 0 0px 4px var(--font);
+}
+
+#guest-tile-hs{
+		border-radius: 50%;
+		box-shadow: 0 0 0px 4px var(--font);
 }
 #artist-tile-ig{
 	color: var(--font);
@@ -375,6 +440,8 @@ transform: scale(1.05);
 	overflow-y: hidden !important;
 }
 
+
+
 @media screen and (max-width:767px){
 
 .container{
@@ -390,3 +457,5 @@ transform: scale(1.05);
 
 
 }
+
+  

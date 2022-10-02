@@ -1,55 +1,43 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.core.mail import BadHeaderError, send_mail
-from .forms import ClientForm
-import environ
-import os
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from .forms import ClientForm
 
 def index(request):
-    return render(request,template_name='booking.html')
-
-def new_client_form(request):
-    if request.method == 'GET':
-        form = ClientForm()
-    else:
-        form = ClientForm(request.POST)
+    form = ClientForm(request.POST or None)
+    context = {
+        'form':form
+    }
+    if request.method == 'POST':
         if form.is_valid():
-            subject = 'New Client Tattoo Inquiry'
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            from_email = form.cleaned_data['email']
+            print(form.cleaned_data)
+            subject = 'New Client Inquiry'
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             location = form.cleaned_data['location']
             size = form.cleaned_data['size']
             description = form.cleaned_data['description']
             style = form.cleaned_data['style']
-            reference = form.cleaned_data['reference']
+            print(description)
+            html = render_to_string('newClientForm.html', context)
+            # print(context)
             try:
-                send_mail(
-                        from_email, 
-                        subject, 
-                        first_name, 
-                        last_name, 
-                        phone, 
-                        location, 
-                        size, 
-                        description, 
-                        style, 
-                        reference, 
-                        ['admin@example.com']
-                        )
+                send_mail(  subject,
+                            html_message=html,
+                            from_email=settings.DEFAULT_FROM_EMAIL,
+                            recipient_list=[''],
+                            fail_silently=False
+                )
             except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            print('Email: success')
-        form = {
-            'form':form
-        }
-    return render(request,'booking.html',form)
+                return HttpResponse("invalid header")
+            return redirect("booking")
+
+    return render(request,'booking.html',{'form':form})
+
+
+
 
