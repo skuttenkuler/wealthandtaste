@@ -105,6 +105,7 @@ $(document).ready(function(){
             }
         ]
     });
+   
     $(window).addEventListener("scroll", function(){
         const parallax = $(".parallax");
         let offset = window.pageYOffset;

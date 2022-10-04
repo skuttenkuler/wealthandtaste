@@ -12,11 +12,11 @@
         </div>
     </div>
     <section class="location-sec">
-        <div class="container">
-            <section class="sec-left">
+        <div class="location-hp-container">
+            <section class="loc-left">
                 <img src="{% static 'images/home2.jpg' %}" alt="Shop Image"/>
             </section>
-            <section class="sec-right">
+            <section class="loc-right">
                     {% for loc in location %}
                     <h4 class="location-header">{{ loc.title }}</h4>
                     <p>is located at</p>
@@ -31,62 +31,62 @@
         </div>
     </section>
     <section class="booking-sec">
-            <div class="container">
-                <section class="sec-left">
+            <div class="booking-hp-container">
+                <section class="book-left">
                     <div class="booking-content">
                         <h2>Need to book an appointment?</h2>
                         <p>Check out our artists.</p>
                         <button><a href="{% url 'artists' %}">View Artists</a></button>
                     </div>
                 </section>
-                <section class="sec-right">
+                <section class="book-right">
                         <img src="{% static '/images/tattoo4.png' %}" alt="Shop Image"/>
         
                 </section>
             </div>
         </section>
-    <section class="artist-sec">
-            <ul style="width:100%">
-            {% for artist in artists %}
-            <li class="tile artist-tile col-lg-3">
-                    <img id="artist-tile-bg" src="{{artist.image_url.img1}}">
-                    <img id="artist-tile-hs" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                    <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}<a id="artist-tile-ig" href="{{artist.instagram_link}}"><i class="fa-brands fa-instagram"></i></a></p>
-            </li>
-            {% endfor %}
-            {% for artist in artists %}
-            <li class="tile artist-tile col-lg-3">
-                    <img id="artist-tile-bg" src="{{artist.image_url.img1}}">
-                    <img id="artist-tile-hs" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                    <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}<a id="artist-tile-ig" href="{{artist.instagram_link}}"><i class="fa-brands fa-instagram"></i></a></p>
-            </li>
-            {% endfor %}
-            {% for artist in artists %}
-            <li class="tile artist-tile col-lg-3">
-                    <img id="artist-tile-bg" src="{{artist.image_url.img1}}">
-                    <img id="artist-tile-hs" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                    <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}<a id="artist-tile-ig" href="{{artist.instagram_link}}"><i class="fa-brands fa-instagram"></i></a></p>
-            </li>
-            {% endfor %}
-            {% for artist in artists %}
-            <li class="tile artist-tile col-lg-3">
-                    <img id="artist-tile-bg" src="{{artist.image_url.img1}}">
-                    <img id="artist-tile-hs" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                    <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}<a id="artist-tile-ig" href="{{artist.instagram_link}}"><i class="fa-brands fa-instagram"></i></a></p>
-            </li>
-            {% endfor %}
-            </ul>
-    </section>
+        <div class="artist-header">
+            <h4>Meet the Family</h4>
+        </div>
+        <section class="artist-sec">
+                <ul class="artist-hp-list" style="width:100%">
+                    {% for artist in artists %}
+                    <li class="tile artist-tile col-lg-3">
+                            <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                            <div class="tile-text">
+                                <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}</p>
+                            </div>
+                    </li>
+                    {% endfor %}
+                    {% for artist in artists %}
+                    <li class="tile artist-tile col-lg-3">
+                            <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                            <div class="tile-text">
+                                <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}</p>
+                            </div>
+                    </li>
+                    {% endfor %}
+                    {% for artist in artists %}
+                    <li class="tile artist-tile col-lg-3">
+                            <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                            <div class="tile-text">
+                                <p id="artist-tile-name">{{ artist.first_name }} {{ artist.last_name }}</p>
+                            </div>
+                    </li>
+                    {% endfor %}
+                    
+                </ul>
+        </section>
     {% if guests %}
     <section class="guest-sec">
         <div class="guest-container">
-            <section class="sec-left">
+            <section class="guest-left">
                 <h4>Guest Artists</h4>
                 <ul class="guest-list">
                     {% for guest in guests %}
                     {% if guest.get_current %}
                     <li class="guest-tile">
-                        <img id="guest-tile-hs" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">
+                        <img id="guest-tile-img" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">
                         <!-- <p id="artist-tile-name">{{ guest.first_name }} {{ guest.last_name }} -->
                             <a id="guest-tile-ig" href="{{guest.instagram_link}}">
                                 <i class="fa-brands fa-instagram"></i>
@@ -99,7 +99,7 @@
                     {% endfor %}
                 </ul>
                 </section>
-                <section class="sec-right">
+                <section class="guest-right">
                     <h4>Coming Soon!</h4>
                     <ul class="guest-list">
                         {% for guest in guests %}
