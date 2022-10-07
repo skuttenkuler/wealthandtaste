@@ -205,6 +205,10 @@ a:hover{
     text-align: center;
 }
 .loc-left{
+	position: relative;
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
 	width: 50%;
 }
 .location-sec img{
@@ -220,20 +224,54 @@ a:hover{
 	color: var(--font);
 	font-size: 1.5rem;
 }
+.location-hp-sec{
+	height: 50%;
+    display: flex;
+    justify-content: center;
+}
+.location-hp-sec img{
+	width: 100%;
+	height: auto;
+}
+.location-hp-sec h4,p{
+	list-style: none;
+	color: var(--font);
+}
+.location-hp-sec p{
+	list-style: none;
+	color: var(--font);
+	font-size: 1.5rem;
+}
 .booking-sec{
-	height: 100%;
-	position: relative;
-	background-color: black;
-	margin-bottom: 30px;
-	display: flex;
-  	justify-content: center;
+	height: 70%;
+    position: relative;
+    display: flex;
+	justify-content: center;
+	background: #000000;
+}
+.booking-hp-sec{
+	height: 60%;
+    display: flex;
+	justify-content: center;
+	background: #000000;
 }
 .book-right{
+	position: relative;
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
 	width: 50%;
+}
+.book-right img{
+	max-height: 60%;
 }
 .book-left{
 	width: 50%;
-	position: relative;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 .booking-sec .container{
 	top: 20%;
@@ -243,7 +281,7 @@ a:hover{
 	position: absolute;
     width: 100%;
     justify-content: center;
-    top: 16%;
+    top: 27%;
 }
 #home-booking-header{
 	position: absolute;
@@ -279,6 +317,12 @@ a:hover{
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	padding-top:25px;
+	text-align: center;
+}
+.artist-header h4{
+	font-size: 4rem;
+	color:var(--font)
 }
 .artist-sec ul{
 	display: grid;
@@ -327,18 +371,15 @@ transform: scale(1.05);
     flex-direction: row;
     white-space: nowrap;
     justify-content: center;
-    margin-right: 2%;
     position: relative;
     width:40%;
     height: 100%;
-    background-color: var(--font);
-    border-radius: 50%;
-    box-shadow: 8px 8px 1px black;
 	
 }
 .guest-tile img{
-	height: 100%;
-	width: 100%;
+	height: 50%;
+    width: 100%;
+	border-radius: 50%;
 }
 .guest-tile p{
 	top: 104%;
@@ -362,6 +403,24 @@ transform: scale(1.05);
 
 #artist-tile-ig{
 	color: var(--font);
+}
+/* GALLERY */
+.s-artist-gallery{
+	display: grid;
+	grid-gap: 0;
+	grid-template-columns: repeat(auto-fit,minmax(250px));
+	grid-auto-flow: dense;
+	grid-auto-rows: 200px;
+}
+.s-artist-gallery > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.s-artist-gallery > div > img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 .artist-headshot{
 	width: 50%;
@@ -389,7 +448,8 @@ transform: scale(1.05);
 	color: brown;
 	position: absolute;
 	font-size:2rem;
-	bottom: 3%;
+	bottom: 0;
+	white-space: nowrap;
 }
 
 .artists-page{
@@ -442,6 +502,19 @@ transform: scale(1.05);
 	width: 50%;
 	margin: 0 auto
 }
+.single-artist{
+	width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+	text-align: center;
+    align-items: center;
+}	
+.single-artist img{
+	width: 50%;
+	height: auto;
+}
 .slick-slide img{
 	min-height: 380px;
 	padding: 13px;
@@ -482,6 +555,7 @@ input[type=text], input[type=email], select {
 }
 .loc-left img{
 	height: 100%;
+	margin: 0 auto;
 }
 .loc-right{
 	margin-top:15px;
@@ -493,12 +567,12 @@ input[type=text], input[type=email], select {
 }
 .book-left{
 	width: 100%;
-	height: 25%;
+	height: 40%;
     text-align: center;
 }
 .book-right{
 	width: 100%;
-    height: 75%;
+    height: 60%;
 }
 .book-right img{
 	height: 100%;
@@ -531,15 +605,16 @@ input[type=text], input[type=email], select {
 #artist-tile-name{
 	white-space: nowrap;
 	font-size: 1.5rem;
-	bottom: 0;
+	margin: 0 auto;
+    width: 100%;
 }
 #artist-tile-img{
 	position: unset;
 }
-
-.slick-list{
-	height: 80% !important;
+.book-right img{
+	max-height: unset;
 }
+
 .guest-sec{
 	height: 100%;
 }
@@ -549,12 +624,20 @@ input[type=text], input[type=email], select {
 }
 .guest-right{
 	width: 100%;
+	height: 50%;
 	text-align: center;
 }
 .guest-left{
 	width: 100%;
-	height: 100%;
+	height: 50%;
 	text-align: center;
+}
+.guest-list{
+	padding: 0;
+	margin: 0;
+}
+#guest-tile-img{
+	height:100%;
 }
 .location-sec{
 	height: 25%;
@@ -569,5 +652,34 @@ input[type=text], input[type=email], select {
     height: 100%;
 
 }
+.guest-tile p {
+	position: unset;
+}
+.slick-list{
+	height: 80% !important;
+}
+}
 
+
+
+@media screen and (min-width:1563px){
+	.artist-sec ul {
+		grid-template-columns: repeat(4, minmax(20rem, 1fr));
+}
+}
+@media screen and (min-width:696px) and (max-width:932px) {
+	.artist-sec ul {
+		grid-template-columns: repeat(3, minmax(14rem, 1fr));
+}
+.artist-tile-name{
+	font-size: 1.8rem;
+}
+}
+@media screen and (max-width:300px) and (min-width:695px){
+	.artist-sec ul {
+		grid-template-columns: repeat(2, minmax(14rem, 1fr));
+}
+#artist-tile-name{
+	font-size: 5.8vw;
+}
 }

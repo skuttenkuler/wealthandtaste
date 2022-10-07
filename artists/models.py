@@ -44,7 +44,6 @@ class GuestArtist(models.Model):
     head_shot = models.ImageField(null=True, blank=True)
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
-    active = models.BooleanField(default=False, null=False)
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 
 
@@ -66,10 +65,15 @@ class GuestArtist(models.Model):
         start = self.start_date
         end = self.end_date
         today = date.today()
-        #check if there is a (false) active.
-        #logic to set true
-        if start >= today:
-                return True
+        print("-------------------------------")
+        print(self.first_name)
+        print("Start-Date:  ",start)
+        print("End-Date:  ",end)
+        print("Today:  ",today)
+        if today < start:
+            return False
+        elif today >= start and today < end:
+             return True                  
         elif today >= end:
                 self.delete()
 
