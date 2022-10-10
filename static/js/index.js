@@ -82,6 +82,7 @@ $(document).ready(function(){
         nextArrow: '<button class="slide-arrow next-arrow"></button>',
         centerPadding: '60px',
         slidesToShow: 3,
+        adaptiveHeight:true,
         responsive: [
             {
             breakpoint: 768,
@@ -91,7 +92,8 @@ $(document).ready(function(){
                 nextArrow: '<button class="slide-arrow next-arrow"></button>',
                 centerMode: true,
                 centerPadding: '40px',
-                slidesToShow: 3
+                slidesToShow: 3,
+                adaptiveHeight:true,
             }
             },
             {
@@ -100,7 +102,8 @@ $(document).ready(function(){
                 arrows: true,
                 centerMode: true,
                 centerPadding: '40px',
-                slidesToShow: 1
+                slidesToShow: 1,
+                adaptiveHeight:true,
             }
             }
         ]

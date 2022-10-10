@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
+<div class="store-page row">
     {% for product in products %}
         <div class="col-lg-4 merch-tile">
             <img class="thumbnail" data-alt-src="{{product.image_2.url}}" src="{{product.image_1.url}}">

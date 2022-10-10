@@ -4,27 +4,41 @@
 {% block content %}
 
 <section class="booking-sec">
-        <div class="container">
-            <h2>BOOKING</h2>
-            <p>If you know which artist you want to get work from, please contact them via information provided by artist</p>
-            <button><a href="{% url 'artists' %}">View Artists</a></button>
-            <p>Not sure which artist you'd like to get work by?</p>
-            <form action="" method="POST" class="contact-form" enctype="multipart/form-data">
-                {% csrf_token %}
-               {{form.as_p}}
-                <div class="form-control">
-                    <input type="submit" value="Send"/>
-                </div>
-            </form>
-            {% for message in messages %}
-                {% if message.tags == 'success' %}
-                    <div class="alert alert-primary text-center mt-3">
-                        {{message}}
-                    </div>
-                {% endif %}
-            {% endfor %}
+        <div class="booking-container">
+            <section class="booking-left">
+                <p>If you know which artist you'd like to work with, please contact the <a style="text-decoration:underline" href="{% url 'artists' %}">artist</a> directly.</p>
+                <p>Not sure which artist you'd like to get work by?</p>
+                <p>Fill out the form and we'll reachout to you with the artist that best suits your idea.</p>
+                <br>
+                <p>Please make sure to add all the information listed below.</p>
+                <ol>
+                    <li>Location</li>
+                    <li>A rough size</li>
+                    <li>A breif description</li>
+                    <li>What style are you looking for?</li>
+                    <li>Color? Black and Grey?</li>
+                    <li>Please add a reference photo.</li>
+                </ol>
+            </section>
+            <section class="booking-right">
+                    <form action="" method="POST" class="contact-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       {{form.as_p}}
+                        <div class="form-control">
+                            <input type="submit" value="Send"/>
+                        </div>
+                    </form>
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <div class="alert alert-primary text-center mt-3">
+                                {{message}}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+            </section>
+            
         </div>
-    </section>
+    </div>
 {% endblock %}
 
 <!--  <div class="form-control">

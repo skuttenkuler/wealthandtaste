@@ -17,11 +17,7 @@ def index(request):
             subject = 'New Client Inquiry'
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
-            phone = form.cleaned_data['phone']
-            location = form.cleaned_data['location']
-            size = form.cleaned_data['size']
             description = form.cleaned_data['description']
-            style = form.cleaned_data['style']
             print(description)
             html = render_to_string('newClientForm.html', context)
             # print(context)

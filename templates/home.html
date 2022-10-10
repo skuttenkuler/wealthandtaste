@@ -75,16 +75,15 @@
         <section class="guest-sec">
             <div class="guest-container">
                     <section class="guest-left">
-                        <h4>Guest Artists</h4>
+                        <h4 class="guest-h">Guest Artists</h4>
                         <ul class="guest-list">
                                 {% for guest in guests%}
                                     {% if guest.get_current %}
                                     <li class="guest-tile">
                                         <a href="{{guest.instagram_link}}">
                                         <img id="guest-tile-img" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">                      
-                                        <p>{{guest.get_current}}</p>
                                         <br>                    
-                                        <p>{{guest.first_name}} {{guest.last_name}}</p>
+                                        <p class="guest-name">{{guest.first_name}} <br> {{guest.last_name}}</p>
                                         </a>
                                     </li>
                                     {% endif%}
@@ -92,21 +91,17 @@
                             </ul>
                         </section>
                     <section class="guest-right">
-                        <h4>Coming Soon!</h4>
+                        <h4 class="guest-h">Upcoming Artists</h4>
                         <ul class="guest-list">
                             {% for guest in guests%}
                                 {% if not guest.get_current %}
                                 <li class="guest-tile">
-                                    <a href="{{guest.instagram_link}}">
-                                    <img id="guest-tile-hs" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">
-                                    <!-- <p id="artist-tile-name">{{ guest.first_name }} {{ guest.last_name }} -->
-                                        <a id="guest-tile-ig" href="{{guest.instagram_link}}"><i class="fa-brands fa-instagram"></i>
+                                        <a class="guest-link" href="{{guest.instagram_link}}">
+                                        <img id="guest-tile-img" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">                      
+                                        <br>                    
+                                        <p class="guest-name">{{guest.first_name}} <br> {{guest.last_name}}</p>
                                         </a>
-                                    </p>
-                                    <br>
-                                    <p>{{guest.first_name}} {{guest.last_name}}</p>
-                                    </a>
-                                </li>
+                                    </li>
                                 {% endif%}
                             {% endfor %}
                         </ul>
