@@ -35,7 +35,7 @@ DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 
 
-ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS'),env('HOST')]
 
 DEFAULT_FROM_EMAIL = ""
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

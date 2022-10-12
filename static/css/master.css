@@ -356,6 +356,8 @@ a:hover{
 }
 .text-container {
 	width:80%;
+	margin-top: 15%;
+    font-size: 1.4rem;
 }
 .booking-right{
 	width: 50%;
@@ -511,10 +513,10 @@ transform: scale(1.05);
 /* GALLERY */
 .s-artist-gallery{
 	display: grid;
-	grid-gap: 0;
-	grid-template-columns: repeat(auto-fit,minmax(250px));
-	grid-auto-flow: dense;
-	grid-auto-rows: 200px;
+    grid-gap: 0;
+    grid-template-columns: repeat(2,3fr);
+    grid-auto-flow: dense;
+    grid-auto-rows: 20%;
 }
 .s-artist-gallery > div {
 	display: flex;
@@ -615,8 +617,10 @@ transform: scale(1.05);
     justify-content: center;
     margin: 0 auto;
 	text-align: center;
-    align-items: center;
+	align-items: center;
+	color: var(--font);
 }	
+
 .single-artist img{
 	width: 50%;
 	height: auto;
@@ -702,7 +706,8 @@ input[type=submit]{
 	height: 100%;
 }
 .booking-container{
-    flex-direction: column;
+	flex-direction: column;
+	top:0;
 }
 .booking-left p{
 	text-align: center;

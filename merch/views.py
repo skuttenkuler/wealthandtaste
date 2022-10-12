@@ -47,7 +47,7 @@ def updateItem(request):
 
     #print(action)
     #print(productID)
-
+    #print(request.user)
     #get user and product, update orderItem
     customer = request.user.customer
     #print(customer)
@@ -69,7 +69,7 @@ def updateItem(request):
         orderItem.delete()
     
 
-    return JsonResponse('Item was addes', safe=False)
+    return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
     #create order timestamp
