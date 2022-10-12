@@ -32,10 +32,9 @@ a{
 	cursor: pointer;
 }
 footer{
-    position: fixed;
-    bottom: 0;
-	width: 100%;
-	height: 100px;
+    height: 200px;
+	position: relative;
+	border-bottom: 10px solid rgb(33,37,40);
 }
 /* animation keyframes */
 @keyframes animateJumbo {
@@ -62,7 +61,28 @@ footer{
 		background-color:var(--primary);
 	}
 }
-
+#form-h{
+	text-align: center;
+	font-size: 4rem;
+	color: var(--font);
+}
+.store-h{
+	text-align: center;
+	font-size: 4rem;
+	color: var(--font);
+	margin-top: 50px;
+    padding-bottom: 50px;
+}
+#store-underline{
+	height: 8px;
+    background-color: var(--font);
+    opacity: 1;
+    width: 50%;
+    margin: 0 auto;
+}
+.page-l{
+	height: 100%;
+}
 .footer-spacer{
 	height: 120px;
 	width: 100%;
@@ -266,8 +286,15 @@ a:hover{
 }
 .location-hp-sec{
 	height: 50%;
+	max-width: 1440px;
+	margin: 0 auto;
     display: flex;
     justify-content: center;
+}
+@media screen and (min-width:1220px){
+.location-hp-sec{
+	height: 60%;
+}
 }
 .location-hp-sec img{
 	width: 100%;
@@ -291,6 +318,8 @@ a:hover{
 }
 .booking-hp-sec{
 	height: 60%;
+	max-width: 1440px;
+	margin: 0 auto;
     display: flex;
 	justify-content: center;
 	background: #000000;
@@ -325,7 +354,7 @@ a:hover{
 .booking-left{
 	width: 50%;
 }
-.booking-left p {
+.text-container {
 	width:80%;
 }
 .booking-right{
@@ -362,6 +391,7 @@ a:hover{
 }
 .artist-sec{
 	width: 98%;
+	max-width: 1440px;
 	height: 100%;
 	display: flex;
 	margin: 0 auto;
@@ -403,8 +433,11 @@ transform: scale(1.05);
 }
 .guest-sec{
 	height: 100%;
-	position: relative;
-	margin-top: 10%
+    max-width: 1440px;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10%;
 }
 .guest-tile a{
 	text-decoration: none !important;
@@ -412,17 +445,17 @@ transform: scale(1.05);
 .guest-name{
 	word-break: break-all;
 	white-space: normal;
-	font-size: 4vw;
+	font-size: 2.5rem;
 }
 .guest-container{
 	width:80%;
-	height: 75%;
+	height: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 }
 .guest-h{
-	font-size: 8vw;
+	font-size: 4rem;
 	color: var(--font);
 }
 .guest-right{
@@ -434,6 +467,7 @@ transform: scale(1.05);
 	width: 100%;
     height: 50%;
 	text-align: center;
+	margin-bottom:50px;
 }
 .guest-tile{
 	display: flex;
@@ -615,6 +649,7 @@ input[type=submit]{
 	background-color: var(--primary);
 	border: 2px solid var(--font);
 	border-radius: 15px;
+	font-size: 1.5rem;
 }
 .booking-left li{
 	color: var(--font);
@@ -676,7 +711,8 @@ input[type=submit]{
 	width: 100%;
 	display: flex;
     flex-direction: column;
-    align-items: center;
+	align-items: center;
+	font-size:1.5rem;
 }
 .booking-right{
 	width:100%

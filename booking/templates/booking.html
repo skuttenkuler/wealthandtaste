@@ -2,25 +2,28 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
+<div class="page-l">
 <section class="booking-sec">
         <div class="booking-container">
             <section class="booking-left">
-                <p>If you know which artist you'd like to work with, please contact the <a style="text-decoration:underline" href="{% url 'artists' %}">artist</a> directly.</p>
-                <p>Not sure which artist you'd like to get work by?</p>
-                <p>Fill out the form and we'll reachout to you with the artist that best suits your idea.</p>
-                <br>
-                <p>Please make sure to add all the information listed below.</p>
-                <ol>
-                    <li>Location</li>
-                    <li>A rough size</li>
-                    <li>A breif description</li>
-                    <li>What style are you looking for?</li>
-                    <li>Color? Black and Grey?</li>
-                    <li>Please add a reference photo.</li>
-                </ol>
+                <div class="text-container">
+                    <p>If you know which artist you'd like to work with, please contact the <a style="text-decoration:underline" href="{% url 'artists' %}">artist</a> directly.</p>
+                    <p>Not sure which artist you'd like to get work by?</p>
+                    <p>Fill out the form and we'll reachout to you with the artist that best suits your idea.</p>
+                    <br>
+                    <p>Please make sure to add all the information listed below.</p>
+                    <ol>
+                        <li>Location</li>
+                        <li>A rough size</li>
+                        <li>A breif description</li>
+                        <li>What style are you looking for?</li>
+                        <li>Color? Black and Grey?</li>
+                        <li>Please add a reference photo.</li>
+                    </ol>
+                </div>
             </section>
             <section class="booking-right">
+                <h4 id="form-h">New Client Form</h4>
                     <form action="" method="POST" class="contact-form" enctype="multipart/form-data">
                         {% csrf_token %}
                        {{form.as_p}}
@@ -39,37 +42,5 @@
             
         </div>
     </div>
+</div>
 {% endblock %}
-
-<!--  <div class="form-control">
-                    <div class="tag">Name</div>
-                    <input type="text" name="name"/>
-                </div>
-                <div class="form-control">
-                    <div class="tag">Email</div>
-                    <input type="text" name="email"/>
-                </div>
-                <div class="form-control">
-                    <div class="tag">Phone Number</div>
-                    <input type="text" name="phone"/>
-                </div>
-                <div class="form-control">
-                    <div class="tag">Location of Tattoo</div>
-                    <input type="text" name="location"/>
-                </div>
-                <div class="form-control">
-                    <div class="tag">Rough Size</div>
-                    <input type="text" name="size"/>
-                </div>
-                <div class="form-control">
-                    <div class="tag">Brief Description</div>
-                    <textarea type="text" name="description" cols="30" rows="10"></textarea>
-                </div>
-                <div class="form-control">
-                    <div class="tag">Color, Black and Grey?</div>
-                    <input type="text" name="style"/>
-                </div>
-                <div class="form-control">
-                    <div class="tag">reference</div>
-                    <input id="id_docfile" type="file" name="file"/>
-                </div> -->

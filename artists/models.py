@@ -76,5 +76,30 @@ class GuestArtist(models.Model):
              return True                  
         elif today >= end:
                 self.delete()
-
-
+    @property
+    def get_curr_sec(self):
+        start = self.start_date
+        end = self.end_date
+        today = date.today()
+        flag = False
+        while flag:
+            if today < start:
+                pass
+            elif today >= start and today < end:
+                flag = True
+                return flag                  
+    @property
+    def get_upcoming_sec(self):
+        start = self.start_date
+        end = self.end_date
+        today = date.today()
+        flag = False
+        print("trigg")
+        while flag:
+            print("------------- INside loop--------------")
+            if today < start:
+                print("Found")
+                flag = True
+                return flag 
+            elif today >= start and today < end:
+                pass 

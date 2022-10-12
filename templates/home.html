@@ -72,10 +72,13 @@
                 </ul>
         </section>
     {% if guests %}
-        <section class="guest-sec">
-            <div class="guest-container">
+    <section class="guest-sec">
+        <div class="guest-container">
+                {%for guest in guests%}
+                    {%if guest.get_current %}
+                        {% ifchanged %}
                     <section class="guest-left">
-                        <h4 class="guest-h">Guest Artists</h4>
+                                    <h4 class="guest-h">Guest Artists</h4>
                         <ul class="guest-list">
                                 {% for guest in guests%}
                                     {% if guest.get_current %}
@@ -90,8 +93,15 @@
                                 {% endfor %}
                             </ul>
                         </section>
+                        {% endifchanged %}
+                            {% endif %}
+                        {%endfor%}
+                        {%for guest in guests%}
+                            {%if not guest.get_current %}
+                                {% ifchanged %}
                     <section class="guest-right">
-                        <h4 class="guest-h">Upcoming Artists</h4>
+                                        <h4 class="guest-h">Upcoming Artists</h4>
+                                  
                         <ul class="guest-list">
                             {% for guest in guests%}
                                 {% if not guest.get_current %}
@@ -106,6 +116,9 @@
                             {% endfor %}
                         </ul>
                     </section>
+                    {% endifchanged %}
+                    {% endif %}
+                {% endfor %}
                     </div>
                 </section>
             

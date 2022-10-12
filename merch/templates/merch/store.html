@@ -3,6 +3,9 @@
 {% load static %}
 
 {% block content %}
+<div class="page-l">
+    <h4 class="store-h">STORE<hr id="store-underline"></h4>
+    
 <div class="store-page row">
     {% for product in products %}
         <div class="col-lg-4 merch-tile">
@@ -20,6 +23,7 @@
             </div>
         </div>
     {% endfor %}
+</div>
 </div>
 
 {% endblock %}

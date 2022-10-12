@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+<div class="page-l">
 <a style="margin-left:10px;margin-top:10px; color: var(--font)" class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
 <div class="row">
         <div class="col-lg-6" id="user-shipping">
@@ -68,6 +69,7 @@
             </div>
         </div>
     </div>
+</div>
     <!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=AQVNXRXTLYWvl-AvoajRH9Lu-4NPekD2AoQtrH4kpAG_U6AbqbbPYeISPCpbPqEbxacmgeBXDQzH9lWl&currency=USD"></script>
     <script>
