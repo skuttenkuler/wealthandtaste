@@ -831,7 +831,7 @@ input[type=text], input[type=email]{
 }
 
 .guest-sec{
-	height: 100%;
+	height: 50%;
 }
 .guest-container{
 	flex-direction: column;
@@ -854,9 +854,6 @@ input[type=text], input[type=email]{
 	margin: 0;
 	height: 100%;
 	text-decoration: none;
-}
-#guest-tile-img{
-	height:80%;
 }
 .location-sec{
 	height: 25%;
@@ -886,17 +883,33 @@ input[type=text], input[type=email]{
 }
 .guest-right > .guest-list{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
+	width: 100%;
 }
 .guest-left > .guest-list{
 	padding-bottom: 15%;
 }
-
+.guest-tile{
+	display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+#guest-tile-img {
+    width: 11rem;
+    height: auto;
+}
 }
 
-
-
+@media screen and (min-width:992px){
+	.store-page{
+		height: 100%;
+	}
+}
 @media screen and (min-width:1563px){
 	.artist-sec ul {
 		grid-template-columns: repeat(4, minmax(20rem, 1fr));
@@ -938,6 +951,11 @@ input[type=text], input[type=email]{
 	width: 100%;
     text-align: center;
 }
+.artist-sec {
+    width: 94%;
+    height: auto;
+	margin-bottom: 31%;
+}
 .artist-name{
 	position: unset;
 	bottom: 0;
@@ -950,5 +968,44 @@ input[type=text], input[type=email]{
 .artists-header{
 	text-align: center;
 	margin-left: unset;
+}
+.booking-hp-text h2{
+	font-size: 2.2rem;
+}
+.booking-hp-text button {
+    width: 70%;
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+}
+@media screen and (max-width:400px){
+.artist-sec ul {
+	grid-template-columns: repeat(1, minmax(22rem, 1fr));
+	grid-row-gap: 1%;
+	padding: 0;
+}
+.artist-sec {
+    width: 94%;
+    height: auto;
+    margin-bottom: 93%;
+}
+.guest-sec {
+    height: 60%;
+}
+.guest-right > .guest-list {
+	flex-direction: column;
+	height: 100%;
+}
+#guest-tile-img {
+    width: 9rem;
+}
+.guest-tile{
+	height: 40%;
+}
+.guest-tile p {
+    font-size: 2rem;
+}
+.booking-hp-text{
+	width: 80%
 }
 }
