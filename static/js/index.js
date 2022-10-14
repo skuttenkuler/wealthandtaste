@@ -87,7 +87,7 @@ $(document).ready(function(){
             {
             breakpoint: 768,
             settings: {
-                arrows: false,
+                arrows: true,
                 prevArrow: '<button class="slide-arrow prev-arrow"></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"></button>',
                 centerMode: false,
@@ -99,7 +99,7 @@ $(document).ready(function(){
             {
             breakpoint: 480,
             settings: {
-                arrows: false,
+                arrows: true,
                 centerMode: false,
                 centerPadding: '40px',
                 slidesToShow: 1,
