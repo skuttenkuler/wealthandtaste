@@ -905,7 +905,7 @@ input[type=text], input[type=email]{
 }
 .booking-content{
 
-    width: 80% !important;
+    width: 80%;
 
 }
 
@@ -997,7 +997,7 @@ input[type=text], input[type=email]{
     margin-bottom: 93%;
 }
 .guest-sec {
-    height: 60%;
+    height: 100%;
 }
 .guest-right > .guest-list {
 	flex-direction: column;
@@ -1012,7 +1012,29 @@ input[type=text], input[type=email]{
 .guest-tile p {
     font-size: 2rem;
 }
+.booking-hp-sec {
+    min-height: 100%;
+}
 .booking-hp-text{
 	width: 80%
+}
+.booking-content{
+	width:100%
+}
+.location-header {
+    font-size: 3rem;
+}
+.location-sec > .container {
+    width: 100%;
+    left: 0;
+}
+.booking-sec{
+	height: 225%;
+}
+.booking-right form {
+	width: 100%;
+}
+.booking-left >.text-container {
+    width: 100%;
 }
 }
