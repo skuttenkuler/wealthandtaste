@@ -223,11 +223,17 @@ a:hover{
     background-attachment: fixed;
     min-height: 108%;
 }
-
-
-.logo{
-	font-size:32vw;
+.parallax2{
+    position: relative;
+    background-image: url("../images/background2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 108%;
 }
+
+
 .parallax-text{
 	position: absolute;
 	top:20%;
@@ -237,8 +243,11 @@ a:hover{
 	animation: animateJumbo 3s ease;
 }
 .parallax-text .border{
-    background-color: var(--brown);
+	background-color: var(--brown);
     color: var(--font)
+}
+.logo{
+	font-size:32vw;
 }
 .title-sec{
 	height: 100%;
@@ -1039,4 +1048,13 @@ input[type=text], input[type=email]{
 .booking-left >.text-container {
     width: 100%;
 }
+.parallax{
+    background-attachment: unset;
+    min-height: 100%;
+}
+.parallax2{
+    background-attachment: unset;
+    min-height: 100%;
+}
+
 }
