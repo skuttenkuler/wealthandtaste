@@ -223,14 +223,7 @@ a:hover{
     background-attachment: fixed;
     min-height: 108%;
 }
-.parallax2{
-	position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 108%;
-}
+
 
 .logo{
 	font-size:32vw;
