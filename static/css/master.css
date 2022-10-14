@@ -709,6 +709,12 @@ input[type=submit]{
 	width: 80%;
 	left: 10%;
 }
+.checkout{
+	height: 130% !important;
+}
+.quantity{
+	display: flex;
+}
 .location-header{
 	font-size: 2rem;
 }
