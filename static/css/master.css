@@ -224,7 +224,6 @@ a:hover{
     min-height: 108%;
 }
 .parallax2{
-	background-image: url("../images/background2.jpg");
 	position: relative;
     background-size: cover;
     background-repeat: no-repeat;
