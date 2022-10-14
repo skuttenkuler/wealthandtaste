@@ -65,11 +65,11 @@ class GuestArtist(models.Model):
         start = self.start_date
         end = self.end_date
         today = date.today()
-        print("-------------------------------")
-        print(self.first_name)
-        print("Start-Date:  ",start)
-        print("End-Date:  ",end)
-        print("Today:  ",today)
+        # print("-------------------------------")
+        # print(self.first_name)
+        # print("Start-Date:  ",start)
+        # print("End-Date:  ",end)
+        # print("Today:  ",today)
         if today < start:
             return False
         elif today >= start and today < end:
@@ -96,9 +96,9 @@ class GuestArtist(models.Model):
         flag = False
         print("trigg")
         while flag:
-            print("------------- INside loop--------------")
+            # print("------------- INside loop--------------")
             if today < start:
-                print("Found")
+                # print("Found")
                 flag = True
                 return flag 
             elif today >= start and today < end:

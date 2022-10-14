@@ -75,8 +75,8 @@ function updateCustomerOrder(productID, action){
 $(document).ready(function(){
     //Slick Carousel
     $(".tattoo-tiles").slick({
-        centerMode: true,
-        infinite:true,
+        centerMode: false,
+        infinite:false,
         arrows: true,
         prevArrow: '<button class="slide-arrow prev-arrow"></button>',
         nextArrow: '<button class="slide-arrow next-arrow"></button>',
@@ -87,20 +87,20 @@ $(document).ready(function(){
             {
             breakpoint: 768,
             settings: {
-                arrows: true,
+                arrows: false,
                 prevArrow: '<button class="slide-arrow prev-arrow"></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"></button>',
-                centerMode: true,
+                centerMode: false,
                 centerPadding: '40px',
-                slidesToShow: 3,
+                slidesToShow: 1,
                 adaptiveHeight:true,
             }
             },
             {
             breakpoint: 480,
             settings: {
-                arrows: true,
-                centerMode: true,
+                arrows: false,
+                centerMode: false,
                 centerPadding: '40px',
                 slidesToShow: 1,
                 adaptiveHeight:true,

@@ -6,8 +6,9 @@
 <div class="home">
     <div class="title-sec parallax">
             <div class="parallax-text">
+                        <h1 class="logo">LOGO</h1>
                         <h2>Wealth and Taste</h2>
-                        <button><a href="{% url 'artists' %}">View Artists</a></button>
+                        <button class="home-btn"><a href="{% url 'artists' %}">View Artists</a></button>
             </div>
         </div>
     </div>
@@ -30,20 +31,18 @@
             </section>
         </div>
     </section>
-    <section class="booking-hp-sec">
-            <div class="booking-hp-container">
-                <section class="book-left">
-                    <div class="booking-content">
-                        <h2>Need to book an appointment?</h2>
-                        <p>Check out our artists.</p>
-                        <button><a href="{% url 'artists' %}">View Artists</a></button>
-                    </div>
-                </section>
-                <section class="book-right">
-                        <img src="{% static '/images/tattoo4.png' %}" alt="Shop Image"/>
-        
-                </section>
+    <section class="booking-hp-sec parallax">
+        <div class="booking-content">
+            <div class="booking-hp-text">
+                <h2>Book your appointment.</h2>
+                <button class="home-btn"><a href="{% url 'artists' %}">View Artists</a></button>
+                <br>
+                <br>
+                <h2>New Client? Not sure which artist?</h2>
+                <button class="home-btn"><a href="{% url 'booking' %}">Inquiry Form</a></button>
             </div>
+        </div>
+            
         </section>
         <div class="artist-header">
             <h4>Meet the Family</h4>
@@ -52,20 +51,26 @@
                 <ul class="artist-hp-list" style="width:100%">
                     {% for artist in artists %}
                     <li class="tile artist-tile col-lg-3">
-                            <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                                <p id="artist-tile-name">{{ artist.first_name }}<a href="#" style="text-decoration:none;"><i class="fa fa-instagram"></i></a></p>
+                            <a href="/artists/{{ artist.id }}">
+                                <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                                    <p class="artist-tile-name">{{ artist.first_name }}</p>
+                            </a>
                     </li>
                     {% endfor %}
                     {% for artist in artists %}
                     <li class="tile artist-tile col-lg-3">
-                            <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                                <p id="artist-tile-name">{{ artist.first_name }}<i class="fa fa-instagram"></i></p>
+                            <a href="/artists/{{ artist.id }}">
+                                <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                                    <p class="artist-tile-name">{{ artist.first_name }}</p>
+                            </a>
                     </li>
                     {% endfor %}
                     {% for artist in artists %}
                     <li class="tile artist-tile col-lg-3">
-                            <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                                <p id="artist-tile-name">{{ artist.first_name }}<i class="fa fa-instagram"></i></p>
+                            <a href="/artists/{{ artist.id }}">
+                                <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                                    <p class="artist-tile-name">{{ artist.first_name }}</p>
+                            </a>
                     </li>
                     {% endfor %}
                     
