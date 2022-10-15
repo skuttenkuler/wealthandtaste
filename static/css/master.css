@@ -1040,7 +1040,7 @@ input[type=text], input[type=email]{
     left: 0;
 }
 .booking-sec{
-	height: 225%;
+	height: 300%;
 }
 .booking-right form {
 	width: 100%;
@@ -1056,5 +1056,22 @@ input[type=text], input[type=email]{
     background-attachment: unset;
     min-height: 100%;
 }
-
+.home-btn{
+	width: 50%;
+}
+.location-hp-sec {
+    height: 90%;
+}
+.booking-hp-text button {
+	width: 90%;
+}
+.booking-hp-text a {
+    font-size: 2rem;
+}
+.next-arrow {
+	right: -15%;
+}
+.prev-arrow {
+    left: -15%;
+}
 }
