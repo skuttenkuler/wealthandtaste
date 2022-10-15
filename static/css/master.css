@@ -1069,9 +1069,9 @@ input[type=text], input[type=email]{
     font-size: 2rem;
 }
 .next-arrow {
-	right: -15%;
+	right: -30%;
 }
 .prev-arrow {
-    left: -15%;
+    left: -30%;
 }
 }
