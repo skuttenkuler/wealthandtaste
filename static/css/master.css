@@ -5,8 +5,8 @@
 }
 
 @font-face {
-	font-family: "Berkshire";
-	src: url('../fonts/BerkshireSwash-Regular.ttf') format("truetype");
+	font-family: "WhiteDream";
+	src: url('../fonts/WhiteDreamPERSONALUSEONLY-Regular.otf') format("opentype");
 }
 
 body,html{
@@ -16,7 +16,7 @@ body,html{
 	width: 100%;
 	overflow-x: hidden;
 	background-color:var(--primary);
-	font-family: "Berkshire";
+	font-family: "WhiteDream";
 	-ms-overflow-style: none;  /* IE and Edge */
   	scrollbar-width: none;  /* Firefox */
 }
@@ -247,7 +247,8 @@ a:hover{
     color: var(--font)
 }
 .logo{
-	font-size:32vw;
+	font-size: 16vw;
+    padding-bottom: 6%;
 }
 .title-sec{
 	height: 100%;
@@ -340,7 +341,7 @@ a:hover{
 	background: #000000;
 }
 .booking-hp-sec{
-	min-height: 50%;
+	min-height: 70%;
 	max-width: 1440px;
 	margin: 0 auto;
     display: flex;
