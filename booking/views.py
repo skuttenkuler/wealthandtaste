@@ -1,37 +1,45 @@
 from django.conf import settings
-from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
+from django.core.mail import send_mail,EmailMessage,BadHeaderError
+from django.utils.html import strip_tags
 from django.template.loader import render_to_string
 from .forms import ClientForm
 
 def index(request):
-    form = ClientForm(request.POST or None)
+    form = ClientForm(request.POST,request.FILES)
     context = {
         'form':form
     }
     if request.method == 'POST':
         if form.is_valid():
-            print(form.cleaned_data)
+            #print(form.cleaned_data)
             subject = 'New Client Inquiry'
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
-            description = form.cleaned_data['description']
-            print(description)
-            html = render_to_string('newClientForm.html', context)
-            # print(context)
+            desc = form.cleaned_data['description']
+            form_data = {
+                'name':name,
+                'email':email,
+                'desc':desc
+            }
+            html_message = render_to_string('newClientForm.html',{'data':form_data})
+            plain_message = strip_tags(html_message)
+            print("Email:", settings.EMAIL)
             try:
-                send_mail(  subject,
-                            html_message=html,
-                            from_email=settings.DEFAULT_FROM_EMAIL,
-                            recipient_list=[''],
-                            fail_silently=False
+                #print(subject,html)
+                email = EmailMessage(   subject,
+                                        plain_message,
+                                        settings.EMAIL,
+                                        [settings.EMAIL]
                 )
+                if request.FILES:
+                    uploaded_file = request.FILES['reference'] # file is the name value which you have provided in form for file field
+                    email.attach(uploaded_file.name, uploaded_file.read(), uploaded_file.content_type)
+                    email.send()     
             except BadHeaderError:
                 return HttpResponse("invalid header")
             return redirect("booking")
-
     return render(request,'booking.html',{'form':form})
 
 

@@ -7,16 +7,20 @@
     <div class="store-page row">
         {% for product in products %}
             <div class="col-lg-4 merch-tile">
-                <img class="thumbnail" data-alt-src="{{product.image_2.url}}" src="{{product.image_1.url}}">
+                <img class="thumbnail" data-alt-src="{{product.description}}" src="{{product.image_1}}">
                 <div class="box-element product">
                     <h4>{{ product.title }}</p>
                         <hr/>
-                        <p>{{ product.description}}</p>
-                        {% if product.quantity == 0 %}
-                            <button class="soldout btn btn-outline-secondary add-btn disable">Sold Out</button>
-                        {% else %}
-                            <button class="update-cart btn btn-outline-secondary" data-product={{product.id}} data-action="add" >Add to Cart</button>
-                        {% endif %}
+                        <ul>
+                            {% for i in product.sizes.values %}
+                            {% if i.quantity == 0 %}
+                                <button class="soldout btn btn-outline-secondary add-btn disable">{{i.sizes}}</button>
+                            {% else %}
+                                <button class="update-cart btn btn-outline-secondary" data-product={{i.product_id}} data-size={{i.id}} data-action="add" >{{i.sizes}}</button>
+                            {% endif %}
+                            {%endfor%}
+                            
+                        </ul>
                         <h4>${{ product.price|floatformat:2 }}</h4>
                 </div>
             </div>

@@ -2,27 +2,39 @@ from django.db import models
 from django.contrib.auth.models import User
 import uuid
 
+
 class Merch(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
-    quantity = models.IntegerField(default=0)
-    image_1 = models.ImageField(null=True, blank=True)
-    image_2 = models.ImageField(null=True, blank=True)
-    image_3 = models.ImageField(null=True, blank=True)
+    image_1 = models.CharField(max_length=250,null=True, blank=True)
+    image_2 = models.CharField(max_length=250,null=True, blank=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 
     def __str__(self):
         return self.title
 
-    #image render safe check
-    @property
-    def imgURL(self):
-        try:
-            url = self.image_1.url
-        except:
-            url = ''
-        return url
+    # #image render safe check
+    # @property
+    # def imgURL(self):
+    #     try:
+    #         url = self.image_1.url
+    #     except:
+    #         url = ''
+    #     return url
+
+class ProductSize(models.Model):
+    CHOICES = (
+        ('xs','XS'),
+        ('s', 'S'),
+        ('m', 'M'),
+        ('l', 'L'),
+        ('xl', 'XL'),
+        ('xxl', 'XXL')
+    )
+    sizes = models.CharField(max_length=50, choices=CHOICES, default='l')
+    product = models.ForeignKey(Merch, on_delete=models.CASCADE, related_name='sizes')
+    quantity = models.IntegerField(default=0)
 
 class Customer(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -61,16 +73,21 @@ class Order(models.Model):
             shipping = True
         return shipping 
 
+    @staticmethod
+    def get_orders_by_customer(customer_id):
+        return Order.objects.filter(customer=customer_id).order_by('-date')
+        
 class OrderItem(models.Model):
     product = models.ForeignKey(Merch, on_delete=models.SET_NULL, blank=True, null=True)
+    size = models.CharField(max_length=50,blank=False, null=False, default='s')
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
-    quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     #get total
     @property
     def get_total(self):
-        total = self.product.price * self.quantity
+        print("SELF:",self.product.__dict__.values())
+        total = self.product.price * self.product.quantity
         return total
     
 class ShippingAddress(models.Model):

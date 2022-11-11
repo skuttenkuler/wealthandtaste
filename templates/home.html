@@ -1,21 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block content %}
 <div class="home">
     <div class="title-sec parallax">
             <div class="parallax-text">
-                        <h1 class="logo">LOGO</h1>
-                        <h2>Wealth and Taste</h2>
+                        <img class="home-logo"src="https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/logos/Lips+Logo.png" alt="Wealth and Taste Logo">
                         <button class="home-btn"><a href="{% url 'artists' %}">View Artists</a></button>
             </div>
         </div>
     </div>
+    <section class="video-section">
+        <video controls autoplay muted loop playsinline>
+            <source src="https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/video/Wealth%26Taste_Colored_V3.mp4">
+            Your browser does not support the video tag.
+            </video>
+    </section>
     <section class="location-hp-sec">
         <div class="location-hp-container">
             <section class="loc-left">
-                <img src="{% static 'images/home2.jpg' %}" alt="Shop Image"/>
+                <img src="https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop2.jpg" alt="Shop Image"/>
             </section>
             <section class="loc-right">
                     {% for loc in location %}
@@ -31,7 +35,7 @@
             </section>
         </div>
     </section>
-    <section class="booking-hp-sec parallax">
+    <section class="booking-hp-sec parallax2">
         <div class="booking-content">
             <div class="booking-hp-text">
                 <h2>Book your appointment.</h2>
@@ -48,32 +52,15 @@
             <h4>Meet the Family</h4>
         </div>
         <section class="artist-sec">
-                <ul class="artist-hp-list" style="width:100%">
+                <ul class="artist-hp-list">
                     {% for artist in artists %}
                     <li class="tile artist-tile col-lg-3">
                             <a href="/artists/{{ artist.id }}">
-                                <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                                    <p class="artist-tile-name">{{ artist.first_name }}</p>
+                                <img id="artist-tile-img" src="{{ artist.head_shot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
+                                    <p class="artist-tile-name">{{ artist.name }}</p>
                             </a>
                     </li>
                     {% endfor %}
-                    {% for artist in artists %}
-                    <li class="tile artist-tile col-lg-3">
-                            <a href="/artists/{{ artist.id }}">
-                                <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                                    <p class="artist-tile-name">{{ artist.first_name }}</p>
-                            </a>
-                    </li>
-                    {% endfor %}
-                    {% for artist in artists %}
-                    <li class="tile artist-tile col-lg-3">
-                            <a href="/artists/{{ artist.id }}">
-                                <img id="artist-tile-img" src="{{ artist.image_url.headshot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                                    <p class="artist-tile-name">{{ artist.first_name }}</p>
-                            </a>
-                    </li>
-                    {% endfor %}
-                    
                 </ul>
         </section>
     {% if guests %}
@@ -92,6 +79,7 @@
                                         <img id="guest-tile-img" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">                      
                                         <br>                    
                                         <p class="guest-name">{{guest.first_name}} <br> {{guest.last_name}}</p>
+                                        <p class="guest-date">{{guest.start_date|date:'m-d'}} - {{guest.end_date|date:'m-d'}}</p>
                                         </a>
                                     </li>
                                     {% endif%}
@@ -115,6 +103,7 @@
                                         <img id="guest-tile-img" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">                      
                                         <br>                    
                                         <p class="guest-name">{{guest.first_name}} <br> {{guest.last_name}}</p>
+                                        <p class="guest-date">{{guest.start_date}} - {{guest.end_date}}</p>
                                         </a>
                                     </li>
                                 {% endif%}

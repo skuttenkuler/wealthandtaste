@@ -38,8 +38,13 @@ SECRET_KEY = env('SECRET_KEY')
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS'),env('HOST')]
 
-DEFAULT_FROM_EMAIL = ""
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL = env('EMAIL')
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django_ses.SESBackend'
+AWS_ACCESS_KEY_ID = env('AWS_KEY')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_KEY')
+AWS_SES_REGION_NAME = env('AWS_SES_REGION') 
+AWS_SES_REGION_ENDPOINT =env('AWS_SES_ENDPOINT')
 # Application definition
 
 INSTALLED_APPS = [
@@ -153,10 +158,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Email Config
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = False

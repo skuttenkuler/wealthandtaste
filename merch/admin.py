@@ -5,15 +5,14 @@ from django.urls import path
 from .models import *
 
 
-#class OrderAdmin(admin.ModelAdmin):
-    #info needed name, order items, address
-   # list_display = ('customer','date_ordered','transaction_id','complete')
+class ProductSizeInline(admin.TabularInline):
+    model = ProductSize
+    extra = 1
 
-    #def address(self,obj:ShippingAddress) -> str:
-      #return f"{str(obj.address)}"
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [ProductSizeInline]
 
-
-admin.site.register(Merch)
+admin.site.register(Merch, ProductAdmin)
 admin.site.register(Customer)
 admin.site.register(Order)
 admin.site.register(OrderItem)

@@ -5,8 +5,12 @@
 }
 
 @font-face {
-	font-family: "WhiteDream";
-	src: url('../fonts/WhiteDreamPERSONALUSEONLY-Regular.otf') format("opentype");
+	font-family: "Storia-l";
+	src: url('../fonts/Storia-Light.otf') format("opentype");
+}
+@font-face {
+	font-family: "Storia-r";
+	src: url('../fonts/Storia-Regular.otf') format("opentype");
 }
 
 body,html{
@@ -16,9 +20,10 @@ body,html{
 	width: 100%;
 	overflow-x: hidden;
 	background-color:var(--primary);
-	font-family: "WhiteDream";
+	font-family: "Storia-r";
 	-ms-overflow-style: none;  /* IE and Edge */
-  	scrollbar-width: none;  /* Firefox */
+	  scrollbar-width: none;  /* Firefox */
+	  scroll-behavior: smooth;
 }
 body::-webkit-scrollbar {
 	display: none;
@@ -37,6 +42,14 @@ footer{
     height: 200px;
 	position: relative;
 	border-bottom: 10px solid rgb(33,37,40);
+}
+video {
+    object-fit: fill;
+}
+.video-section{
+	display: flex;
+	justify-content: center;
+	
 }
 /* animation keyframes */
 @keyframes animateJumbo {
@@ -213,10 +226,21 @@ a:hover{
 	color: #fff;
 	text-decoration: none;
 }
-
+.home-logo{
+	width: 50%;
+    max-width: 800px;
+    display: flex;
+    margin: 0 auto;
+}
+.nav-logo{
+	max-width: 60px;
+}
+.nav-item{
+	font-size:1.8rem;
+}
 .parallax{
     position: relative;
-    background-image: url("../images/home1.jpg");
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop5.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -225,7 +249,7 @@ a:hover{
 }
 .parallax2{
     position: relative;
-    background-image: url("../images/background2.jpg");
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -414,15 +438,20 @@ a:hover{
 	text-align: center;
 }
 .artist-sec{
-	width: 98%;
-	max-width: 1440px;
+	background-color: var(--primary);
+	width: 100%;
 	height: 100%;
 	display: flex;
 	margin: 0 auto;
 	justify-content: center;
 }
+.artist-hp-list{
+	margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
 .artist-header{
-	background-color: var(--crimson);
+	background-color: #130a07;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -439,18 +468,14 @@ a:hover{
 	grid-row-gap: 2%;
     grid-column-gap: 1%;
 	justify-content: center;
+	width: 50%;
 }
 .artist-tile{
 	display: flex;
     justify-content: center;
     position: relative;
-    width: 90%;
-    height: 100%;
-    background-color: var(--font);
-    border-radius: 25px;
-    box-shadow: 8px 8px 1px black;
-	transition: all .2s ease-in-out; 
-	list-style: none;
+    width: 100%;
+    height: 50%;
 	text-align: center;
 }
 .tile:hover{
@@ -521,18 +546,13 @@ transform: scale(1.05);
 	padding: 0;
 }
 #artist-tile-img{
-	border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
     position: absolute;
     top: 0;
     left: 0;
-    height: 86%;
+    height: 100%;
     width: 100%;
 }
 
-#artist-tile-ig{
-	color: var(--font);
-}
 /* GALLERY */
 .s-artist-gallery{
 	display: grid;
@@ -589,7 +609,7 @@ transform: scale(1.05);
 }
 .artist-tile p{
 	margin: 0 auto;
-    color: var(--primary);
+    color: var(--font);
     position: absolute;
     font-size: 2rem;
     bottom: 0;
@@ -716,7 +736,9 @@ input[type=submit]{
 }
 
 @media screen and (max-width:767px){
-
+.nav-logo{
+	max-width: 10%;
+}
 .container{
 	width: 80%;
 	left: 10%;
@@ -813,16 +835,14 @@ input[type=text], input[type=email]{
 	display: block;
     justify-content: center;
     position: relative;
-    background-color: var(--font);
    	text-align: center;
-    box-shadow: 8px 8px 1px black;
     list-style: none;
     width: 100%;
     height: 100%;
     transition: none; 
 }
 .artist-sec{
-	width: 94%;
+	width: 100%;
 	height: auto;
 	margin-bottom: 15%;
 }
@@ -912,7 +932,7 @@ input[type=text], input[type=email]{
     height: 100%;
 }
 #guest-tile-img {
-    width: 11rem;
+    width: 100%;
     height: auto;
 }
 .booking-content{
@@ -954,11 +974,22 @@ input[type=text], input[type=email]{
 	padding-bottom: 0 !important;
 	
 }
-
+.video-section {
+    width: 100%;
+}
+.video-section > video{
+	width:100%
+}
 }
 @media screen and (max-width:695px){
 	.artist-sec ul {
 		grid-template-columns: repeat(2, minmax(14rem, 1fr));
+}
+.video-section {
+    width: 100%;
+}
+.video-section > video{
+	width:100%
 }
 #artist-tile-name{
 	font-size: 5.8vw;
@@ -999,14 +1030,17 @@ input[type=text], input[type=email]{
 }
 @media screen and (max-width:400px){
 .artist-sec ul {
-	grid-template-columns: repeat(1, minmax(22rem, 1fr));
+	grid-template-columns: repeat(1, minmax(24rem, 1fr));
 	grid-row-gap: 1%;
 	padding: 0;
 }
+.artist-tile-name{
+	font-size: 4rem;
+}
 .artist-sec {
-    width: 94%;
+    width: 100%;
     height: auto;
-    margin-bottom: 93%;
+    margin-bottom: 30%;
 }
 .guest-sec {
     height: 100%;
@@ -1015,11 +1049,35 @@ input[type=text], input[type=email]{
 	flex-direction: column;
 	height: 100%;
 }
+.navbar-brand{
+	position: absolute;
+    width: 100%;
+	left: 86%;
+	top:7px;
+}
+.loc-left{
+	width:88%
+}
+.home{
+	margin-bottom: 0;
+}
+.home-logo{
+	width: 90%;
+}
+.video-section{
+	width:100%
+}
 #guest-tile-img {
-    width: 9rem;
+    width: 100%;
+}
+.guest-right {
+	height: 100%;
+}
+.guest-sec{
+	height: 100%;
 }
 .guest-tile{
-	height: 40%;
+	height: 100%;
 }
 .guest-tile p {
     font-size: 2rem;
@@ -1061,7 +1119,7 @@ input[type=text], input[type=email]{
 	width: 50%;
 }
 .location-hp-sec {
-    height: 90%;
+    height: 100%;
 }
 .booking-hp-text button {
 	width: 90%;

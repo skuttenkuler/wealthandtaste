@@ -5,10 +5,10 @@ def cookieCart(req):
     #get cookie data, if no cookie , create it
     try:
         cart = json.loads(req.COOKIES['cart'])
-        #print(cart)
+        # print(cart)
     except:
         cart = {}
-    print("Cart: ", cart)
+    # print("Cart: ", cart)
     items = []
     order = {'get_cart_total':0, 'get_cart_items':0,'shipping':False}
     cartItems = order['get_cart_items']
@@ -17,25 +17,33 @@ def cookieCart(req):
         try:
             cartItems += cart[i]['quantity']
             product = Merch.objects.get(id=i)
+            size_id = cart[i]['size_id']
+            
+            sizes = ProductSize.objects.get(id=size_id)
+            size = sizes.__dict__['sizes']
             total = (product.price * cart[i]['quantity'])
             order['get_cart_total'] += total
             order['get_cart_items'] += cart[i]['quantity']
-    
+            print("<<--CARTDATA-->>: ")
+            print(product.price)
             item = {
                 'product': {
                     'id': product.id,
                     'title': product.title,
                     'price': product.price,
-                    'imgURL': product.imgURL,
+                    'imgURL': product.image_1,
                 },
                 'quantity': cart[i]['quantity'],
+                'size': size,
                 'get_total': total
             }
             items.append(item)
+            print("FUCK--->>:",item['product'])
 
             order['shipping'] = True
         except:
             pass
+        print("ITEMS------->>:",items)
     return {
         'cartItems': cartItems,
         'order': order,
@@ -44,6 +52,7 @@ def cookieCart(req):
 
 def cartData(req):
     cookieData = cookieCart(req)
+    print("------->>",cookieData)
     cartItems = cookieData['cartItems']
     order = cookieData['order']
     items = cookieData['items']
@@ -76,12 +85,13 @@ def CustomerOrder(request,data):
         complete=False
     )
     for item in items:
+        print(item)
         product = Merch.objects.get(id=item['product']['id'])
         #print("PRODUCT::::::", product)
         orderItem = OrderItem.objects.create(
             product=product,
-            order=order,
-            quantity=item['quantity']
+            item=item,
+            order=order
         )
 
     if order.shipping == True:

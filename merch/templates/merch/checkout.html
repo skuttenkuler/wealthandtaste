@@ -58,7 +58,7 @@
                             {% for item in items %}
                             <div class="cart-row">
                                 <div style="flex:2"><img class="row-image" src="{{item.product.imgURL}}"></div>
-                                <div style="flex:2"><p>{{ item.product.title }}</p></div>
+                                <div style="flex:2"><p>{{ item.product.title }}--{{item.size|capfirst}}</p></div>
                                 <div style="flex:1"><p>${{item.product.price}}</p></div>
                                 <div style="flex:1"><p>x{{item.quantity}}</p></div>
                             </div>
@@ -160,6 +160,7 @@
             }).then((data) => {
                 console.log("success: ", data);
                 alert("Transaction complete");
+                
                 //prior to redirect, reset cookie
                 cart = {}
 			    //console.log('Cart Created!', cart)

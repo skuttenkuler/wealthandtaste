@@ -22,3 +22,4 @@ def single_artist(request,id):
         'artist': artist
     }
     return render(request, 'artists/artist.html', context)
+

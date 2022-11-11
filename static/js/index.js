@@ -4,29 +4,24 @@ var updateBtns = document.getElementsByClassName('update-cart');
 for(var i = 0; i < updateBtns.length; i++){
     updateBtns[i].addEventListener('click',(e)=>{
         e.preventDefault();
-        //console.log(e.target.dataset)
         //console.log(data)
         var productID = e.target.dataset.product;
+        //console.log(productID)
+        var sizeId = e.target.dataset.size;
         var action = e.target.dataset.action;
         //console.log("User: ", user)
         //console.log(productID, action)
 
-        if(user == 'AnonymousUser'){
-            addCookieItem(productID, action);
-            
-        }
-        else{
-            updateCustomerOrder(productID, action);
-           
-        }
+        addCookieItem(productID, sizeId, action);
+          
     })
 }
 //user not logged in update cookie cart
-async function addCookieItem(productID, action){
+async function addCookieItem(productID,sizeId,action){
     //console.log("not logged in");
     if(action == 'add'){
         if(cart[productID] == undefined){
-            cart[productID] = {'quantity':1};
+            cart[productID] = {'quantity':1,'size_id':sizeId};
         }else{
             cart[productID]['quantity'] += 1;
         }
@@ -41,13 +36,13 @@ async function addCookieItem(productID, action){
     }
 
     //set cookie
-    console.log('CART:', cart)
+    //console.log('CART:', cart)
     document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
     
     window.location.reload()
 }
 
-function updateCustomerOrder(productID, action){
+function updateCustomerOrder(productID, sizeID, action){
 
     var url = 'update_item/';
 
@@ -59,6 +54,7 @@ function updateCustomerOrder(productID, action){
         },
         body:JSON.stringify({
             'productID':productID, 
+            'sizeID': sizeID,
             'action': action
         })
     }).then((res) => {
