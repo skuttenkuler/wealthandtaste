@@ -25,7 +25,7 @@ def index(request):
             }
             html_message = render_to_string('newClientForm.html',{'data':form_data})
             plain_message = strip_tags(html_message)
-            print("Email:", settings.EMAIL)
+            # print("Email:", settings.EMAIL)
             try:
                 #print(subject,html)
                 email = EmailMessage(   subject,

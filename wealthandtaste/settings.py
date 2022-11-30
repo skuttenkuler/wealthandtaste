@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'psycopg2',
     'bootstrap4',
     'artists',
-    'merch.apps.MerchConfig',
     'location',
     'booking'
 ]

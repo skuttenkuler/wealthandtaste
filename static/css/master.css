@@ -81,13 +81,7 @@ video {
 	font-size: 4rem;
 	color: var(--font);
 }
-.store-h{
-	text-align: center;
-	font-size: 4rem;
-	color: var(--font);
-	margin-top: 50px;
-    padding-bottom: 50px;
-}
+
 .underline{
 	height: 8px;
     background-color: var(--font);
@@ -108,33 +102,7 @@ video {
 	animation: fadeIn 3s ease-out;
 	transition: overlayBlack 3s ease-out;
 }
-.store-page{
-	margin-top:25px
-}
-.update-cart{
-	color: var(--primary);
-	background: var(--font);
-}
-.soldout{
-	background: var(--primary);
-	color: var(--font);
-}
-.cart-row{
-	display: flex;
-	align-items: flex-stretch;
-	padding-bottom: 10px;
-	margin-bottom:10px;
-	border-bottom: 1px solid var(--font);
-}
-.quantity{
-	display: inline-block;
-	font-weight: 700;
-	padding-right:10px;
-}
-.box-element a,.box-element h5 {
-	color: var(--font) !important;
-	padding: 10px;
-}
+
 .row-image{
 	width: 100px;
 	margin: 0 auto;
@@ -147,10 +115,6 @@ video {
 	margin-top: 10px;
 }
 
-.nav-cart{
-	display:flex;
-	margin-bottom:-10px;
-}
 #navbar{
 	background-color: var(--primary) !important;
 	color: var(--font);
@@ -164,35 +128,15 @@ a:hover{
 	color: var(--font) !important;
 
 }
-#cart-img{
-	width:25px;
-	display: inline-block;
-}
 
-#cart-total{
-	display: block;
-	text-align: center;
-	color:#fff;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	font-size: 14px;
-}
-#user-info, #shipping-info, #form-button{
-	width:50%;
-}
+
 #form{
 	display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-#user-shipping h4{
-	text-align: center;
-}
-.store-btn{
-	margin-left:10px
-}
+
 
 .container{
 	width:50%;
@@ -431,12 +375,7 @@ a:hover{
 	margin: 0 auto;
 	display:none;
 }
-.merch-tile{
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-	text-align: center;
-}
+
 .artist-sec{
 	background-color: var(--primary);
 	width: 100%;
@@ -450,17 +389,24 @@ a:hover{
     justify-content: center;
     align-items: center;
 }
-.artist-header{
-	background-color: #130a07;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	padding-top:25px;
-	text-align: center;
+.artist-group{
+	background-image: url(https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/crew.jpg);
+    width: 100vw;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
 }
-.artist-header h4{
-	font-size: 4rem;
-	color:var(--font)
+
+.artist-group h4{
+	font-size: 10vw;
+    color: var(--font);
+    position: absolute;
+    left: 21%;
+    bottom: 7%;
 }
 .artist-sec ul{
 	display: grid;
@@ -743,12 +689,7 @@ input[type=submit]{
 	width: 80%;
 	left: 10%;
 }
-.checkout{
-	height: 130% !important;
-}
-.quantity{
-	display: flex;
-}
+
 .location-header{
 	font-size: 2rem;
 }
@@ -815,9 +756,7 @@ input[type=submit]{
     align-items: center;
     margin: 0 auto;
 }
-#user-info, #shipping-info, #form-button{
-	width:80%;
-}
+
 input[type=text], input[type=email]{
 	width: 100%;
 	padding: 12px 20px;
@@ -857,6 +796,7 @@ input[type=text], input[type=email]{
 
 #artist-tile-img{
 	position: unset;
+	height: 106%;
 }
 .book-right img{
 	max-height: unset;
@@ -943,11 +883,7 @@ input[type=text], input[type=email]{
 
 }
 
-@media screen and (min-width:992px){
-	.store-page{
-		height: 100%;
-	}
-}
+
 @media screen and (min-width:1563px){
 	.artist-sec ul {
 		grid-template-columns: repeat(4, minmax(20rem, 1fr));
@@ -1026,7 +962,12 @@ input[type=text], input[type=email]{
     font-size: 1.5rem;
     white-space: nowrap;
 }
-
+#home-group-photo{
+	width: 50vw;
+	height:auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 }
 @media screen and (max-width:400px){
 .artist-sec ul {
@@ -1041,6 +982,9 @@ input[type=text], input[type=email]{
     width: 100%;
     height: auto;
     margin-bottom: 30%;
+}
+.artist-group{
+	height: 52.2%;
 }
 .guest-sec {
     height: 100%;

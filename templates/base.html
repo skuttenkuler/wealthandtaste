@@ -70,13 +70,9 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                       <li class="nav-item active"><a href="{% url 'artists' %}" class="nav-link">Artists</a></li>
-                      <li class="nav-item active"><a href="{% url 'store' %}" class="nav-link">Merch</a></li>
+                      <li class="nav-item active"><a href="https://wealth-and-taste.myshopify.com/" class="nav-link">Store</a></li>
                       <li class="nav-item active"><a href="{% url 'location' %}" class="nav-link">Location</a></li>
                       <li class="nav-item active"><a href="{% url 'booking' %}" class="nav-link">Booking</a></li>    
-                      <li class="nav-item nav-cart ">
-                          <a class="nav-link" href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}" id="cart-img"/></a>
-                          <p id="cart-total">{{cartItems}}</p>
-                      </li>
                   </ul> 
               </div>
           </div>

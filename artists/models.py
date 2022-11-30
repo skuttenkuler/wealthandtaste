@@ -8,6 +8,7 @@ class Artist(models.Model):
     instagram_link = models.CharField(max_length=2000, null=True, blank=True)
     head_shot = models.CharField(max_length=250,null=True, blank=True)
     main_profile = models.CharField(max_length=250,null=True, blank=True)
+    image_0 = models.CharField(max_length=250,null=True, blank=True)
     image_1 = models.CharField(max_length=250,null=True, blank=True)
     image_2 = models.CharField(max_length=250,null=True, blank=True)
     image_3 = models.CharField(max_length=250,null=True, blank=True)
@@ -17,7 +18,7 @@ class Artist(models.Model):
     image_7 = models.CharField(max_length=250,null=True, blank=True)
     image_8 = models.CharField(max_length=250,null=True, blank=True)
     image_9 = models.CharField(max_length=250,null=True, blank=True)
-    image_10 = models.CharField(max_length=250,null=True, blank=True)
+    apprentice = models.BooleanField(default=False)
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 
 
@@ -56,16 +57,6 @@ class GuestArtist(models.Model):
         return self.first_name + " " + self.last_name     
     
     @property
-    def image_url(self):
-        def get_img_url(img):
-            if img:
-                return img.url
-            else:
-                return ''
-        return{
-                "headshot": get_img_url(self.head_shot)
-    }
-    @property
     def get_current(self):
         start = self.start_date
         end = self.end_date
@@ -81,30 +72,30 @@ class GuestArtist(models.Model):
              return True                  
         elif today >= end:
                 self.delete()
-    @property
-    def get_curr_sec(self):
-        start = self.start_date
-        end = self.end_date
-        today = date.today()
-        flag = False
-        while flag:
-            if today < start:
-                pass
-            elif today >= start and today < end:
-                flag = True
-                return flag                  
-    @property
-    def get_upcoming_sec(self):
-        start = self.start_date
-        end = self.end_date
-        today = date.today()
-        flag = False
-        print("trigg")
-        while flag:
-            # print("------------- INside loop--------------")
-            if today < start:
-                # print("Found")
-                flag = True
-                return flag 
-            elif today >= start and today < end:
-                pass 
+    # @property
+    # def get_curr_sec(self):
+    #     start = self.start_date
+    #     end = self.end_date
+    #     today = date.today()
+    #     flag = False
+    #     while flag:
+    #         if today < start:
+    #             pass
+    #         elif today >= start and today < end:
+    #             flag = True
+    #             return flag                  
+    # @property
+    # def get_upcoming_sec(self):
+    #     start = self.start_date
+    #     end = self.end_date
+    #     today = date.today()
+    #     flag = False
+    #     print("trigg")
+    #     while flag:
+    #         # print("------------- INside loop--------------")
+    #         if today < start:
+    #             # print("Found")
+    #             flag = True
+    #             return flag 
+    #         elif today >= start and today < end:
+    #             pass 

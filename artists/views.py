@@ -19,7 +19,8 @@ def index(request):
 def single_artist(request,id):
     artist = Artist.objects.get(id=id)
     context= {
-        'artist': artist
+        'artist': artist,
+        'iterator':range(0,9)
     }
     return render(request, 'artists/artist.html', context)
 

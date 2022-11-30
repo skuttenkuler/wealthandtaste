@@ -5,7 +5,7 @@
 <div class="home">
     <div class="title-sec parallax">
             <div class="parallax-text">
-                        <img class="home-logo"src="https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/logos/Lips+Logo.png" alt="Wealth and Taste Logo">
+                        <img class="home-logo"src="https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/logos/Lips_Creme.png" alt="Wealth and Taste Logo">
                         <button class="home-btn"><a href="{% url 'artists' %}">View Artists</a></button>
             </div>
         </div>
@@ -22,14 +22,12 @@
                 <img src="https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop2.jpg" alt="Shop Image"/>
             </section>
             <section class="loc-right">
-                    {% for loc in location %}
-                    <h4 class="location-header">{{ loc.title }}</h4>
+                    <h4 class="location-header">Wealth and Taste Tattoo</h4>
                     <p>is located at</p>
                     <br>
-                    <p>{{ loc.address }}</p>
-                    <p>{{loc.city}} {{ loc.state }} {{loc.zipcode}}</p>
-                    <p>{{ loc.phone }}</p>
-                    {% endfor %}
+                    <p>3250 Dickerson Pike Suite 121</p>
+                    <p>Nashville, TN 37207</p>
+                    <p>(615)-660-0811</p>
                 </ul>
     
             </section>
@@ -48,7 +46,7 @@
         </div>
             
         </section>
-        <div class="artist-header">
+        <div class="artist-group">
             <h4>Meet the Family</h4>
         </div>
         <section class="artist-sec">
@@ -58,6 +56,9 @@
                             <a href="/artists/{{ artist.id }}">
                                 <img id="artist-tile-img" src="{{ artist.head_shot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
                                     <p class="artist-tile-name">{{ artist.name }}</p>
+                                    {% if artist.apprentice %}
+                                        <span>(apprentice)</span>
+                                    {% endif%}
                             </a>
                     </li>
                     {% endfor %}
@@ -76,7 +77,7 @@
                                     {% if guest.get_current %}
                                     <li class="guest-tile">
                                         <a href="{{guest.instagram_link}}">
-                                        <img id="guest-tile-img" src="{{ guest.image_url.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">                      
+                                        <img id="guest-tile-img" src="{{ guest.headshot }}" alt="{{guest.fist_name}} {{guest.last_name}}">                      
                                         <br>                    
                                         <p class="guest-name">{{guest.first_name}} <br> {{guest.last_name}}</p>
                                         <p class="guest-date">{{guest.start_date|date:'m-d'}} - {{guest.end_date|date:'m-d'}}</p>
