@@ -8,6 +8,7 @@ class Artist(models.Model):
     instagram_link = models.CharField(max_length=2000, null=True, blank=True)
     head_shot = models.CharField(max_length=250,null=True, blank=True)
     main_profile = models.CharField(max_length=250,null=True, blank=True)
+    insta_image = models.CharField(max_length=250,null=True, blank=True)
     image_0 = models.CharField(max_length=250,null=True, blank=True)
     image_1 = models.CharField(max_length=250,null=True, blank=True)
     image_2 = models.CharField(max_length=250,null=True, blank=True)

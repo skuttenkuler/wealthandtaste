@@ -5,17 +5,52 @@
 
 {% block content%}
     <div class="single-artist">
-        <h2>{{artist.first_name}}</h2>
-        <h2>{{artist.last_name}}</h2>
+        <h2>{{artist.name}}</h2>
         <img src="{{ artist.main_profile }}" alt="">
         <p>{{artist.bio}}</p>
     </div>
+    <div class="s-artist-instagram">
+        <h4>Check me out on Instagram</h4>
+        <section>
+            <p>Best way to stay up to date on all my work is to follow me here.</p>
+            <button href='{{artist.instagram_link}}'>Go to Instagram</button>
+        </section>
+        <section>
+            <img src="{{artist.insta_image}}" alt="iphone image of instagram page"/>
+        </section>
+    </div>
     <div class="s-artist-gallery">
-        {% for i in iterator %}
         <div>
-            <img class="s-artist-gallery-image" src='{{ artist.image_}}+{{i}}' alt="">
+            <img class="s-artist-gallery-image" src='{{ artist.image_0}}' alt="">
         </div>
-        {% endfor %}
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_1}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_2}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_3}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_4}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_5}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_6}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_7}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_8}}' alt="">
+        </div>
+        <div>
+            <img class="s-artist-gallery-image" src='{{ artist.image_9}}' alt="">
+        </div>
+
     </div>
 
 {% endblock%}

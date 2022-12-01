@@ -114,7 +114,12 @@ video {
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
 	margin-top: 10px;
 }
-
+li {
+	color: var(--font);
+}
+::marker{
+	color: var(--font);
+}
 #navbar{
 	background-color: var(--primary) !important;
 	color: var(--font);
@@ -299,7 +304,9 @@ a:hover{
 .location-hp-sec p{
 	list-style: none;
 	color: var(--font);
-	font-size: 1.5rem;
+	font-size: 2.5rem;
+	margin: 0 auto;
+    padding: 10px;
 }
 .booking-sec{
 	height: 100%;
@@ -389,24 +396,17 @@ a:hover{
     justify-content: center;
     align-items: center;
 }
-.artist-group{
-	background-image: url(https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/crew.jpg);
-    width: 100vw;
-    height: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: flex;
+.artist-header{
+	width: 100%;
+    height: auto;
     justify-content: center;
     text-align: center;
-    position: relative;
 }
 
-.artist-group h4{
-	font-size: 10vw;
+.artist-header h4{
     color: var(--font);
-    position: absolute;
-    left: 21%;
-    bottom: 7%;
+    font-size: 14vw;
+    padding: 26px 10px;	
 }
 .artist-sec ul{
 	display: grid;
@@ -632,8 +632,9 @@ transform: scale(1.05);
 
 	transition: all .2s ease-in-out; 
 }
+
 .single-artist{
-	width: 80%;
+	width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -641,10 +642,15 @@ transform: scale(1.05);
 	text-align: center;
 	align-items: center;
 	color: var(--font);
+	margin-top: 10%;
 }	
+.single-artist p{
+	width: 95%;
+    font-size: 20px;
+}
 
 .single-artist img{
-	width: 50%;
+	width: 100%;
 	height: auto;
 }
 .slick-slide img{
@@ -1000,7 +1006,7 @@ input[type=text], input[type=email]{
 	top:7px;
 }
 .loc-left{
-	width:88%
+	width:100%
 }
 .home{
 	margin-bottom: 0;
@@ -1057,13 +1063,13 @@ input[type=text], input[type=email]{
 }
 .parallax2{
     background-attachment: unset;
-    min-height: 100%;
+    min-height: 66%;
 }
 .home-btn{
 	width: 50%;
 }
 .location-hp-sec {
-    height: 100%;
+    height: 64%;
 }
 .booking-hp-text button {
 	width: 90%;

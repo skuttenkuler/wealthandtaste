@@ -7,23 +7,42 @@
         <h2 class="artists-header">Tattoo Artists</h2>
 <div class="artists-page">
     {% for artist in artists %}
+        {% if artist.name == "Sweets" %}
                 <div class="artist-row-header">
-                <h4 class="artist-name">{{ artist.first_name }} {{ artist.last_name }}</h4>
-                
+                        <h4 class="artist-name">{{ artist.name }}</h4>
                 </div>
-            <div class="artist-row">
-                <div class="tattoo-tiles">
-                        <a href="/artists/{{ artist.id }}/">
-                                <img class="tile" src="{{ artist.image_url.headshot }}" alt="">
-                        </a>
-                        <span><img id="artist-img" src="{{ artist.image_url.img1 }}" alt=""></span>
-                        <span><img id="artist-img" src="{{ artist.image_url.img1 }}" alt=""></span>
-                        <span><img id="artist-img" src="{{ artist.image_url.img2 }}" alt=""></span>
-                        <span><img id="artist-img" src="{{ artist.image_url.img3 }}" alt=""></span>
-                        <span><img id="artist-img" src="{{ artist.image_url.img4 }}" alt=""></span>
-                        <span><img id="artist-img" src="{{ artist.image_url.img5 }}" alt=""></span>
+                <div class="artist-row">
+                        <div class="tattoo-tiles">
+                                <a href="/artists/{{ artist.id }}/">
+                                        <img class="tile" src="{{ artist.head_shot }}" alt="">
+                                </a>
+                                <span><img id="artist-img" src="{{ artist.image_0}}" alt=""></span>
+                                <span><img id="artist-img" src="{{ artist.image_1}}" alt=""></span>
+                                <span><img id="artist-img" src="{{ artist.image_2}}" alt=""></span>
+                                <span><img id="artist-img" src="{{ artist.image_3}}" alt=""></span>
+                                <span><img id="artist-img" src="{{ artist.image_4}}" alt=""></span>
+                                <span><img id="artist-img" src="{{ artist.image_5}}" alt=""></span>
+                        </div>
                 </div>
-            </div>
+        {% else %}
+        <div class="artist-row-header">
+                        <h4 class="artist-name">{{ artist.name }}</h4>
+                        
+                        </div>
+                        <div class="artist-row">
+                                <div class="tattoo-tiles">
+                                        <a href="/artists/{{ artist.id }}/">
+                                                <img class="tile" src="{{ artist.head_shot }}" alt="">
+                                        </a>
+                                        <span><img id="artist-img" src="{{ artist.image_0}}" alt=""></span>
+                                        <span><img id="artist-img" src="{{ artist.image_1}}" alt=""></span>
+                                        <span><img id="artist-img" src="{{ artist.image_2}}" alt=""></span>
+                                        <span><img id="artist-img" src="{{ artist.image_3}}" alt=""></span>
+                                        <span><img id="artist-img" src="{{ artist.image_4}}" alt=""></span>
+                                        <span><img id="artist-img" src="{{ artist.image_5}}" alt=""></span>
+                                </div>
+                        </div>
+        {% endif %}
         {% endfor %}
 </div>
 {% endblock %}
