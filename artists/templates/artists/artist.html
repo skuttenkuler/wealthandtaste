@@ -5,20 +5,30 @@
 
 {% block content%}
     <div class="single-artist">
-        <h2>{{artist.name}}</h2>
         <img src="{{ artist.main_profile }}" alt="">
+        <h2 class="s-artist-headline">{{artist.name}}</h2>
+        {% if not artist.apprentice %}
+            {% if artist.email %}
+                <a class="s-artist-contact-btn" href="mailto:{{artist.email}}">Contact</a>
+            {% else %}
+                <a class="s-artist-contact-btn" href="{{artist.instagram_link}}">Contact</a>
+            {% endif %}
+        {% endif %}
+        
         <p>{{artist.bio}}</p>
     </div>
-    <div class="s-artist-instagram">
+    <section class="s-artist-instagram">
         <h4>Check me out on Instagram</h4>
-        <section>
+        <div class="instagram-block">
+        <div class="insta-left">
             <p>Best way to stay up to date on all my work is to follow me here.</p>
             <button href='{{artist.instagram_link}}'>Go to Instagram</button>
-        </section>
-        <section>
+        </div>
+        <div class="insta-right">
             <img src="{{artist.insta_image}}" alt="iphone image of instagram page"/>
-        </section>
+        </div>
     </div>
+    </section>
     <div class="s-artist-gallery">
         <div>
             <img class="s-artist-gallery-image" src='{{ artist.image_0}}' alt="">
@@ -41,16 +51,21 @@
         <div>
             <img class="s-artist-gallery-image" src='{{ artist.image_6}}' alt="">
         </div>
+        {%if artist.image_7 %}
         <div>
             <img class="s-artist-gallery-image" src='{{ artist.image_7}}' alt="">
         </div>
+        {% endif %}
+        {%if artist.image_8 %}
         <div>
             <img class="s-artist-gallery-image" src='{{ artist.image_8}}' alt="">
         </div>
+        {% endif %}
+        {%if artist.image_9 %}
         <div>
             <img class="s-artist-gallery-image" src='{{ artist.image_9}}' alt="">
         </div>
-
+        {% endif %}
     </div>
 
 {% endblock%}

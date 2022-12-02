@@ -40,8 +40,12 @@ a, a:hover, a:focus, a:active {
 }
 footer{
     height: 200px;
-	position: relative;
 	border-bottom: 10px solid rgb(33,37,40);
+	position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
 }
 video {
     object-fit: fill;
@@ -91,6 +95,7 @@ video {
 }
 .page-l{
 	height: 100%;
+	background-color: #000;
 }
 .footer-spacer{
 	height: 120px;
@@ -166,14 +171,16 @@ a:hover{
 .home-btn{
 	border:solid var(--font);
 	border-radius: 15px;
-	background: none;
-	width:25%;
+	width:40vw;
 	margin:0 auto;
+	background-color: var(--font);
+    margin-top: 2%;
 }
 .home-btn a{
-	font-size: 120%;
-	color: #fff;
+	font-size: 5vw;
+    color: var(--primary);
 	text-decoration: none;
+	white-space: nowrap;
 }
 .home-logo{
 	width: 50%;
@@ -268,6 +275,55 @@ a:hover{
 	justify-content: center;
 	width: 50%;
 }
+.instagram-block{
+	position: relative;
+	width:100%;
+	display: flex;
+}
+.insta-right{
+	width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.insta-left{
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    margin-top: 17%;
+}
+.insta-left button{
+	margin-left: 10%;
+    font-size: 3vw;
+    background-color: var(--primary);
+    color: var(--font);
+    border-radius: 15px;
+}
+.insta-left p{
+	margin-left: 10%;
+	font-size: 5vw;
+}
+
+.s-artist-instagram{
+	text-align: center;
+}
+.s-artist-instagram h4{
+	color: var(--font);
+    padding-top: 5%;
+    font-size: 6vw;
+}
+.s-artist-contact-btn{
+	color: var(--primary);
+    background-color: var(--font);
+    border-radius: 15px;
+    width: 20vw;
+    font-size: 3vw;
+}
+
 .location-sec img{
 	width: 100%;
 	height: auto;
@@ -331,8 +387,10 @@ a:hover{
 }
 .booking-hp-text button{
 	width: 55%;
+	max-width:392px;
     font-size: 2rem;
-    white-space: nowrap;
+	white-space: nowrap;
+	background-color: var(--font);
 }
 .booking-hp-text h2{
     font-size: 3.2rem;
@@ -390,6 +448,7 @@ a:hover{
 	display: flex;
 	margin: 0 auto;
 	justify-content: center;
+	margin-bottom: 5%;
 }
 .artist-hp-list{
 	margin: 0 auto;
@@ -410,19 +469,22 @@ a:hover{
 }
 .artist-sec ul{
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-	grid-row-gap: 2%;
-    grid-column-gap: 1%;
-	justify-content: center;
-	width: 50%;
+    grid-template-columns: minmax(33%, 33%) minmax(33%, 33%) minmax(33%, 33%);
+    grid-row-gap: 2%;
+    grid-column-gap: 2%;
+    justify-content: center;
+    width: 90%;
 }
 .artist-tile{
 	display: flex;
     justify-content: center;
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 100%;
 	text-align: center;
+}
+.s-artist-instagram{
+background-color: #000000;
 }
 .tile:hover{
 transform: scale(1.05);
@@ -524,11 +586,10 @@ transform: scale(1.05);
 	position: absolute;
 }
 .artist-row{
-	width: 100%;
-	height: auto;
-	display: flex;
+	width: 100vw !important;
+    display: flex;
 	justify-content: center;
-	padding-bottom: 7%;
+	padding-bottom: 8%;
 }
 .artist-row-info{
 	width:20%;
@@ -546,19 +607,24 @@ transform: scale(1.05);
 	font-size: 3rem;
 	padding-bottom: 1%;
 }
-.artist-row img{
-	width: 40%;
-}
 .artist-row li{
 	list-style: none;
 	width: 100%;
 }
-.artist-tile p{
+.artist-tile-name{
 	margin: 0 auto;
     color: var(--font);
     position: absolute;
-    font-size: 2rem;
-    bottom: 0;
+    font-size: 5vw;
+    bottom: 2%;
+    left: 0;
+    width: 100%;
+    white-space: nowrap;
+}
+.apprentice{
+	position: absolute;
+    font-size: 2vw;
+    bottom:-3%;
     left: 0;
     width: 100%;
     white-space: nowrap;
@@ -580,7 +646,7 @@ transform: scale(1.05);
 
 .tattoo-tiles{
 	position: relative;
-	width:80%;
+	width:100%;
 }
 .tattoo-tiles img{
 	width: 100%;
@@ -632,7 +698,9 @@ transform: scale(1.05);
 
 	transition: all .2s ease-in-out; 
 }
-
+.s-artist-headline{
+ font-size: 10vw;
+}
 .single-artist{
 	width: 100%;
     display: flex;
@@ -642,11 +710,11 @@ transform: scale(1.05);
 	text-align: center;
 	align-items: center;
 	color: var(--font);
-	margin-top: 10%;
 }	
 .single-artist p{
-	width: 95%;
-    font-size: 20px;
+	padding-top: 5%;
+    width: 95%;
+    font-size: 3vw;
 }
 
 .single-artist img{
@@ -804,6 +872,12 @@ input[type=text], input[type=email]{
 	position: unset;
 	height: 106%;
 }
+.single-artist{
+	margin-top:0;
+}
+.s-artist-headline{
+	font-size:25vw;
+}
 .book-right img{
 	max-height: unset;
 }
@@ -894,13 +968,27 @@ input[type=text], input[type=email]{
 	.artist-sec ul {
 		grid-template-columns: repeat(4, minmax(20rem, 1fr));
 }
+.home-btn a{
+	font-size: 60px;
+}
+.artist-tile-name{
+	font-size: 70px;
+}
+.apprentice{
+	font-size: 20px;
+}
+.artist-header h4 {
+	font-size: 150px;
+}
 }
 @media screen and (min-width:696px) and (max-width:932px) {
 	.artist-sec ul {
-		grid-template-columns: repeat(3, minmax(10rem, 1fr));
+		grid-template-columns: minmax(50%, 50%) minmax(50%, 50%);
+		grid-row-gap: 4%;
+    	grid-column-gap: 2%;
 }
 .artist-tile-name{
-	font-size: 1.8rem;
+	font-size: 7vw;
 }
 .artist-row-header{
 	font-size: 2.2rem;
@@ -925,7 +1013,9 @@ input[type=text], input[type=email]{
 }
 @media screen and (max-width:695px){
 	.artist-sec ul {
-		grid-template-columns: repeat(2, minmax(14rem, 1fr));
+		grid-template-columns: minmax(50%, 50%) minmax(50%, 50%);
+		grid-row-gap: 4%;
+    	grid-column-gap: 2%;
 }
 .video-section {
     width: 100%;
@@ -974,12 +1064,57 @@ input[type=text], input[type=email]{
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+.instagram-block{
+	position: relative;
+	width:100%;
+	display: flex;
+}
+.insta-right{
+	width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.insta-left{
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    margin-top: 17%;
+}
+.insta-left button{
+	margin-left: 10%;
+}
+.insta-left p{
+	margin-left: 10%;
+}
+.s-artist-instagram{
+	text-align: center;
+}
+.s-artist-instagram h4{
+	color: var(--font);
+	padding-top:5%;
+}
+.s-artist-contact-btn{
+	color: var(--primary);
+    background-color: var(--font);
+    border-radius: 15px;
+    width: 47vw;
+    font-size: 11vw;
+}
+.single-artist p{
+	padding-top: 10%;
+}
 }
 @media screen and (max-width:400px){
 .artist-sec ul {
-	grid-template-columns: repeat(1, minmax(24rem, 1fr));
-	grid-row-gap: 1%;
-	padding: 0;
+	grid-template-columns: minmax(100%, 100%);
+    grid-row-gap: 1vh;
+    padding: 0;
+    width: 100%;
 }
 .artist-tile-name{
 	font-size: 4rem;

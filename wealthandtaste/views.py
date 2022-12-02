@@ -6,7 +6,7 @@ from artists.models import Artist, GuestArtist
 
 
 def index(request):
-    artists = Artist.objects.all()
+    artists = Artist.objects.all().order_by('name').values()
     guests = GuestArtist.objects.all()
     context = {
         'artists': artists,

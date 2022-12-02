@@ -6,7 +6,7 @@ from datetime import date
 from .models import Artist,GuestArtist
 
 def index(request):
-    artists = Artist.objects.all()
+    artists = Artist.objects.all().order_by('name').values()
     guests = GuestArtist.objects.all()
 
     context = {
@@ -20,7 +20,6 @@ def single_artist(request,id):
     artist = Artist.objects.get(id=id)
     context= {
         'artist': artist,
-        'iterator':range(0,9)
     }
     return render(request, 'artists/artist.html', context)
 
