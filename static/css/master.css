@@ -1218,4 +1218,30 @@ input[type=text], input[type=email]{
 .prev-arrow {
     left: -30%;
 }
+.insta-right{
+	width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.insta-right img{
+	width: 100%;
+	height: auto;
+}
+.insta-left{
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+}
+.insta-left button{
+	font-size: 9px;
+}
+.insta-left p{
+	font-size:12px
+
+}
 }
