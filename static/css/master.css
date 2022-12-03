@@ -1238,10 +1238,10 @@ input[type=text], input[type=email]{
     width: 50%;
 }
 .insta-left button{
-	font-size: 9px;
+	font-size: 15px;
 }
 .insta-left p{
-	font-size:12px
+	font-size:20px
 
 }
 }
