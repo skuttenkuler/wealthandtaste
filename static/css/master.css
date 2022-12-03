@@ -377,6 +377,7 @@ a:hover{
 	margin: 0 auto;
     display: flex;
 	justify-content: center;
+	height: inherit;
 }
 
 .booking-hp-text{
@@ -1051,7 +1052,7 @@ input[type=text], input[type=email]{
 	margin-left: unset;
 }
 .booking-hp-text h2{
-	font-size: 2.2rem;
+	font-size: 8vw;
 }
 .booking-hp-text button {
     width: 70%;
@@ -1210,7 +1211,7 @@ input[type=text], input[type=email]{
 	width: 90%;
 }
 .booking-hp-text a {
-    font-size: 2rem;
+    font-size: 6vw;
 }
 .next-arrow {
 	right: -30%;
@@ -1243,5 +1244,14 @@ input[type=text], input[type=email]{
 .insta-left p{
 	font-size:20px
 
+}
+}
+
+@media screen and (max-width: 400px){
+.booking-hp-text a {
+    font-size: 8vw;
+}
+.booking-hp-text h2 {
+    font-size: 10vw;
 }
 }
