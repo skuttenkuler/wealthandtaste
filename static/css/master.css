@@ -196,7 +196,7 @@ a:hover{
 }
 .parallax{
     position: relative;
-    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop5.jpg");
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/Shop-lobby.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -205,7 +205,7 @@ a:hover{
 }
 .parallax2{
     position: relative;
-    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop2.jpg");
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop5.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1204,7 +1204,7 @@ input[type=text], input[type=email]{
 	width: 50%;
 }
 .location-hp-sec {
-    height: 64%;
+    height:fit-content;
 }
 .booking-hp-text button {
 	width: 90%;
