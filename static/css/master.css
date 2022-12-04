@@ -664,8 +664,8 @@ transform: scale(1.05);
 	top:29%;
 	z-index: 99;
 	background: transparent;
-	color: var(--font);
-	font-size: 5rem;
+	color: var(--primary);
+	font-size: 4rem;
 	border: none;
 }
 .slick-disabled {
@@ -674,12 +674,12 @@ transform: scale(1.05);
 
 .prev-arrow{
 	position: absolute;
-	left: 9%;
+	left: 0;
 	top:29%;
 	z-index: 99;
 	background: transparent;
-	color: var(--font);
-	font-size: 5rem;
+	color: var(--primary);
+	font-size: 4rem;
 	border: none;
 }
 .artist-block{
@@ -1214,10 +1214,10 @@ input[type=text], input[type=email]{
     font-size: 6vw;
 }
 .next-arrow {
-	right: -30%;
+	right: -15%;
 }
 .prev-arrow {
-    left: -30%;
+    left: -25%;
 }
 .insta-right{
 	width: 50%;
@@ -1244,6 +1244,10 @@ input[type=text], input[type=email]{
 .insta-left p{
 	font-size:20px
 
+}
+.single-artist p {
+    padding-top: 10%;
+    font-size: 6vw;
 }
 }
 
