@@ -181,10 +181,11 @@ a:hover{
     color: var(--primary);
 	text-decoration: none;
 	white-space: nowrap;
+	text-shadow: none;
 }
 .home-logo{
 	width: 50%;
-    max-width: 800px;
+    max-width: 700px;
     display: flex;
     margin: 0 auto;
 }
@@ -306,6 +307,7 @@ a:hover{
 .insta-left p{
 	margin-left: 10%;
 	font-size: 5vw;
+	font-family: sans-serif;
 }
 
 .s-artist-instagram{
@@ -715,7 +717,8 @@ transform: scale(1.05);
 .single-artist p{
 	padding-top: 5%;
     width: 95%;
-    font-size: 3vw;
+	font-size: 3vw;
+	font-family: sans-serif;
 }
 
 .single-artist img{
@@ -755,7 +758,12 @@ input[type=submit]{
 .booking-left li{
 	color: var(--font);
 }
-
+.booking-left{
+	font-family: sans-serif;
+}
+.booking-right label{
+	font-family: sans-serif;
+}
 @media screen and (max-width:767px){
 .nav-logo{
 	max-width: 10%;
