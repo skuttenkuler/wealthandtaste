@@ -184,7 +184,7 @@ a:hover{
 	text-shadow: none;
 }
 .home-logo{
-	width: 50%;
+	width: 50vh;
     max-width: 700px;
     display: flex;
     margin: 0 auto;
