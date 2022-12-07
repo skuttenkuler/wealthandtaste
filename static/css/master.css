@@ -206,7 +206,7 @@ a:hover{
 }
 .parallax2{
     position: relative;
-    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop5.jpg");
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop-lobby2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -308,6 +308,9 @@ a:hover{
 	margin-left: 10%;
 	font-size: 5vw;
 	font-family: sans-serif;
+}
+.errorlist{
+	font-family: sans-serif !important;
 }
 
 .s-artist-instagram{
