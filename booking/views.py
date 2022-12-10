@@ -30,8 +30,8 @@ def index(request):
                 #print(subject,html)
                 email = EmailMessage(   subject,
                                         plain_message,
-                                        settings.EMAIL,
-                                        [settings.EMAIL]
+                                        settings.FROM_EMAIL,
+                                        [settings.TO_EMAIL]
                 )
                 if request.FILES:
                     uploaded_file = request.FILES['reference'] # file is the name value which you have provided in form for file field

@@ -37,7 +37,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 
 ALLOWED_HOSTS = [env('HOST_IP'),env('LOCAL_HOST'),env('HOST')]
-EMAIL = env('EMAIL')
+TO_EMAIL = env('TO_EMAIL')
+FROM_EMAIL = env('FROM_EMAIL')
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django_ses.SESBackend'
 AWS_ACCESS_KEY_ID = env('AWS_KEY')

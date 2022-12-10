@@ -126,7 +126,7 @@ li {
 	color: var(--font);
 }
 #navbar{
-	background-color: var(--primary) !important;
+	background-image:linear-gradient(to right,var(--primary),var(--primary),var(--primary),black,black);
 	color: var(--font);
 	box-shadow: 4px 5px 3px black;
 }
@@ -206,7 +206,7 @@ a:hover{
 }
 .parallax2{
     position: relative;
-    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop-lobby2.jpg");
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -371,6 +371,8 @@ a:hover{
 }
 .booking-sec{
 	height: 100%;
+	/* remove */
+	margin-bottom:200px;
     position: relative;
     display: flex;
 	justify-content: center;
