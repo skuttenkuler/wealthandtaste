@@ -662,7 +662,7 @@ transform: scale(1.05);
 	margin: 0 auto;
     color: var(--font);
     position: absolute;
-    font-size: 10vw;
+    font-size: 6vw;
     bottom: 2%;
     left: 0;
     width: 100%;
@@ -809,7 +809,9 @@ input[type=submit]{
 	font-family: sans-serif;
 }
 @media screen and (max-width:767px){
-
+	.artist-tile-name{
+		font-size:10vw;
+	}
 .container{
 	width: 80%;
 	left: 10%;
@@ -1034,8 +1036,8 @@ input[type=text], input[type=email]{
 @media screen and (min-width:696px) and (max-width:932px) {
 	.artist-sec ul {
 		grid-template-columns: minmax(50%, 50%) minmax(50%, 50%);
-		grid-row-gap: 4%;
-    	grid-column-gap: 2%;
+		grid-row-gap: 1%;
+    	grid-column-gap: 1%;
 }
 .artist-tile-name{
 	font-size: 7vw;
