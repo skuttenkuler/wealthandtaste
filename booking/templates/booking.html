@@ -3,26 +3,23 @@
 {% load static %}
 {% block content %}
 <section class=" booking-sec">
+    <h4 id="form-h">New Client Form</h4>
         <div class="booking-container">
             <section class="booking-left">
                 <div class="text-container">
-                    <p>If you know which artist you'd like to work with, please contact the <a style="text-decoration:underline" href="{% url 'artists' %}">artist</a> directly.</p>
-                    <p>Not sure which artist you'd like to get work by?</p>
-                    <p>Fill out the form and we'll reachout to you with the artist that best suits your idea.</p>
-                    <br>
-                    <p>Please make sure to add all the information listed below.</p>
+                    <p>Please include the following and we'll match you with the correct artist:</p>
                     <ol>
                         <li>Location</li>
-                        <li>A rough size</li>
+                        <li>Size</li>
                         <li>A brief description</li>
-                        <li>What style are you looking for?</li>
+                        <li>Style</li>
                         <li>Color? Black and Grey?</li>
-                        <li>Please add a reference photo.</li>
+                        <li>A reference photo.</li>
                     </ol>
                 </div>
             </section>
             <section class="booking-right">
-                <h4 id="form-h">New Client Form</h4>
+               
                     <form action="" method="POST" class="contact-form" enctype="multipart/form-data">
                         {% csrf_token %}
                        {{form.as_p}}
@@ -40,4 +37,5 @@
             </section>
         </div>
     </section>
+</div>
 {% endblock %}

@@ -82,8 +82,9 @@ video {
 }
 #form-h{
 	text-align: center;
-	font-size: 4rem;
+	font-size: 10vw;
 	color: var(--font);
+	margin-top: 2%;
 }
 
 .underline{
@@ -184,7 +185,7 @@ a:hover{
 	text-shadow: none;
 }
 .home-logo{
-	width: 50vh;
+	width:40vh;
     max-width: 700px;
     display: flex;
     margin: 0 auto;
@@ -208,15 +209,6 @@ a:hover{
 .parallax{
     position: relative;
     background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/Shop-lobby.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 108%;
-}
-.parallax2{
-    position: relative;
-    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -363,7 +355,34 @@ a:hover{
 .location-hp-sec{
 	height: 60%;
 }
+#form-h{
+	font-size:8rem;
 }
+}
+ /* iphone 11 max pro */
+@media screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+	.booking-sec{
+		height: 200% !important;
+	}
+	.home {
+		margin-bottom: 14%;
+	}
+	.loc-left {
+		width: 100%;
+	}
+ }
+ /* iphone 12 max pro */
+ @media screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+	.booking-sec{
+		height: 200% !important;
+	}
+	.home {
+		margin-bottom: 14%;
+	}
+	.loc-left {
+		width: 100%;
+	}
+ }
 .location-hp-sec img{
 	width: 100%;
 	height: auto;
@@ -381,20 +400,21 @@ a:hover{
 }
 .booking-sec{
 	height: 100%;
-	/* remove */
-	margin-bottom:200px;
     position: relative;
     display: flex;
 	justify-content: center;
 	background: #000000;
 }
 .booking-hp-sec{
-	min-height: 70%;
+	position: relative;
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 	max-width: 1440px;
 	margin: 0 auto;
     display: flex;
 	justify-content: center;
-	height: inherit;
+	height: 80%;
 }
 
 .booking-hp-text{
@@ -423,9 +443,14 @@ a:hover{
     display: flex;
     flex-direction: row;
 	justify-content: center;
-	top: 8%;
+	top: 0;
 }
 
+@media screen and (min-width:768px){
+	.booking-container{
+		top:15%;
+	}
+}
 .text-container {
 	width:80%;
 	margin-top: 15%;
@@ -586,7 +611,10 @@ transform: scale(1.05);
     grid-gap: 0;
     grid-template-columns: repeat(2,3fr);
     grid-auto-flow: dense;
-    grid-auto-rows: 20%;
+	grid-auto-rows: 20%;
+	max-width: 1000px;
+    justify-content: center;
+    margin: 0 auto;
 }
 .s-artist-gallery > div {
 	display: flex;
@@ -634,7 +662,7 @@ transform: scale(1.05);
 	margin: 0 auto;
     color: var(--font);
     position: absolute;
-    font-size: 5vw;
+    font-size: 10vw;
     bottom: 2%;
     left: 0;
     width: 100%;
@@ -795,13 +823,13 @@ input[type=submit]{
 }
 .location-hp-container{
     flex-direction: column;
-    justify-content: center;
+	justify-content: center;
 }
 .location-hp-sec{
 	height: 70%;
 }
 .loc-left{
-	width: 70%;
+	width: 100%;
 	margin: 0 auto;
 }
 .loc-left img{
@@ -846,7 +874,7 @@ input[type=submit]{
 	width:100%
 }
 .booking-right form{
-	width: 60%;
+	width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -986,7 +1014,6 @@ input[type=text], input[type=email]{
 
 }
 
-@media screen and (min-width:)
 @media screen and (min-width:1563px){
 	.artist-sec ul {
 		grid-template-columns: repeat(4, minmax(20rem, 1fr));
@@ -1057,9 +1084,14 @@ input[type=text], input[type=email]{
 }
 @media screen and (max-width:695px){
 	.artist-sec ul {
-		grid-template-columns: minmax(50%, 50%) minmax(50%, 50%);
-		grid-row-gap: 4%;
-    	grid-column-gap: 2%;
+		grid-template-columns: minmax(100%, 100%);
+		grid-row-gap: 1vh;
+    	padding: 0;
+    	width: 100%;
+}
+.apprentice{
+	bottom: -8% !important;
+	font-size: 6vw;
 }
 .video-section {
     width: 100%;
@@ -1243,8 +1275,8 @@ input[type=text], input[type=email]{
     min-height: 100%;
 }
 .parallax2{
-    background-attachment: unset;
-    min-height: 66%;
+	   height: 100vh;
+	   background-size: cover;
 }
 .home-btn{
 	width: 50%;
