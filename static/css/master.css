@@ -215,7 +215,9 @@ a:hover{
     background-attachment: fixed;
     min-height: 108%;
 }
-
+#id_reference{
+	font-family: sans-serif !important;
+}
 
 .parallax-text{
 	position: absolute;
