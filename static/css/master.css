@@ -409,7 +409,7 @@ a:hover{
 }
 .booking-hp-sec{
 	position: relative;
-    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop3.jpg");
+    background-image: url("https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/shop2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 	max-width: 1440px;
@@ -1250,7 +1250,8 @@ input[type=text], input[type=email]{
     font-size: 2rem;
 }
 .booking-hp-sec {
-    min-height: 100%;
+	min-height: 100%;
+	float: right;
 }
 .booking-hp-text{
 	width: 80%
