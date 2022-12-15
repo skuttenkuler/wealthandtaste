@@ -1251,7 +1251,6 @@ input[type=text], input[type=email]{
 }
 .booking-hp-sec {
 	min-height: 100%;
-	float: right;
 }
 .booking-hp-text{
 	width: 80%
