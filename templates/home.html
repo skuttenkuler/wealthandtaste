@@ -45,17 +45,6 @@
         <section class="artist-sec">
                 <ul class="artist-hp-list">
                     {% for artist in artists %}
-                        {% if artist.name == 'Sweets' %}
-                        <li class="tile artist-tile col-lg-3">
-                                <a href="/artists/{{ artist.id }}">
-                                    <img id="artist-tile-img" src="{{ artist.head_shot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
-                                        <p class="artist-tile-name">{{ artist.name }}</p>
-                                </a>
-                        </li>
-                        {% endif %}
-                    {% endfor %}
-                    {% for artist in artists %}
-                        {% if artist.name != 'Sweets' %}
                             <li class="tile artist-tile col-lg-3">
                                 <a href="/artists/{{ artist.id }}">
                                     <img id="artist-tile-img" src="{{ artist.head_shot }}" alt="{{artist.fist_name}} {{artist.last_name}}">
@@ -65,7 +54,6 @@
                                         {% endif%}
                                 </a>
                             </li>
-                        {% endif %}
                     {% endfor %}
                 </ul>
         </section>

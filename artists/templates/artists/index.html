@@ -6,7 +6,6 @@
 <img style="width: 100vw;height: auto;" src="https://wat-asset-bucket.s3.us-east-2.amazonaws.com/assets/assets/shop/crew.jpg" alt="photo of wealth and taste crew"/>
 <div class="artists-page">
     {% for artist in artists %}
-        {% if artist.name == "Sweets" %}
                 <div class="artist-row-header">
                         <h4 class="artist-name">{{ artist.name }}</h4>
                 </div>
@@ -23,28 +22,6 @@
                                 <span><img id="artist-img" src="{{ artist.image_5}}" alt=""></span>
                         </div>
                 </div>
-        {% endif %}
-        {% endfor %}
-        {% for artist in artists %}
-        {% if artist.name != "Sweets" %}
-        <div class="artist-row-header">
-                        <h4 class="artist-name">{{ artist.name }}</h4>
-                        
-                        </div>
-                        <div class="artist-row">
-                                <div class="tattoo-tiles">
-                                        <a href="/artists/{{ artist.id }}/">
-                                                <img class="tile" src="{{ artist.head_shot }}" alt="">
-                                        </a>
-                                        <span><img id="artist-img" src="{{ artist.image_0}}" alt=""></span>
-                                        <span><img id="artist-img" src="{{ artist.image_1}}" alt=""></span>
-                                        <span><img id="artist-img" src="{{ artist.image_2}}" alt=""></span>
-                                        <span><img id="artist-img" src="{{ artist.image_3}}" alt=""></span>
-                                        <span><img id="artist-img" src="{{ artist.image_4}}" alt=""></span>
-                                        <span><img id="artist-img" src="{{ artist.image_5}}" alt=""></span>
-                                </div>
-                        </div>
-        {% endif %}
         {% endfor %}
 </div>
 {% endblock %}
