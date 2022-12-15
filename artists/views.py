@@ -6,7 +6,7 @@ from datetime import date
 from .models import Artist,GuestArtist
 
 def index(request):
-    artists = Artist.objects.all().order_by('name').values()
+    artists = Artist.objects.all().order_by('order').values()
     guests = GuestArtist.objects.all()
 
     context = {
